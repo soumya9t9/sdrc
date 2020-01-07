@@ -1,0 +1,38 @@
+<div class="container-lg">
+    
+<div class="table-responsive" *ngIf="userList">
+    <table class="students-data table-hover table table-sm tab">
+        <thead class="student thead-light">
+            <th class="name" scope="col">Name</th>
+            <th class="email" scope="col">Email</th>
+            <th class="phone-number" scope="col">Mobile</th>
+            <th class="roll-number" scope="col">Roll Number</th>
+            <th class="dob" scope="col">Class</th>
+            <!-- <th class="dob" scope="col">Date of Birth</th> -->
+            <th colspan="2">Actions</th>
+            <!-- <th></th> -->
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let eachUser of userList" scope="row">
+                <td class="name">{{eachUser.name}}</td>
+                <td class="email">{{eachUser.email}}</td>
+                <td class="phone-number">{{eachUser.mobile}}</td>
+                <td class="roll-number">{{eachUser.rollNumber}}</td>
+                <td class="roll-number">{{eachUser.class}}</td>
+                <!-- <td class="dob">{{eachUser.dob}}</td> -->
+                <td>
+                    <button class="btn btn-primary" (click)="editUser(eachUser)"> edit</button>
+                </td>
+                <td class="">
+                    <button (click)="delete(eachUser)" class="btn btn-danger">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="!userList">
+    No data found
+</div>
+</div>

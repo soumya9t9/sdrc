@@ -1,0 +1,53 @@
+<div *ngIf="formGroup" class="form-group-wrapper container">
+    <form [formGroup]=formGroup class="form-group mt-3">
+        <div class="form-group-item form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name">
+            <div class="error danger alert-danger" *ngIf="formGroup.get('name').errors  && (formGroup.get('name').dirty || isFormSubmitAttempted)">
+                    <p> Please enter valid name </p>
+                </div>
+        </div>
+
+        <div class="form-group-item form-group">
+            <label>Mobile Number</label>
+            <input type="number" class="form-control" formControlName="mobile">
+            <div class="error danger alert-danger" *ngIf="formGroup.get('mobile').errors  && (formGroup.get('mobile').dirty || isFormSubmitAttempted)">
+                    <p> Please enter valid mobile number </p>
+                </div>
+        </div>
+
+        <div class="form-group-item form-group">
+            <label>Email Id</label>
+            <input type="email" class="form-control" formControlName="email">
+            <div class="error danger alert-danger" *ngIf="formGroup.get('email').errors  && (formGroup.get('email').dirty || isFormSubmitAttempted)">
+                    <p> Please enter valid email </p>
+                </div>
+        </div>
+        <div class="form-group-item form-group">
+            <label>Date Of Birth</label>
+            <input type="date" class="form-control" formControlName="dob">
+            <div class="error danger alert-danger" *ngIf="formGroup.get('dob').errors  && (formGroup.get('dob').dirty || isFormSubmitAttempted)">
+                    <p> Please enter valid Date of birth </p>
+                </div>
+        </div>
+
+        <div class="form-group-item form-group">
+            <label>Roll Number</label>
+            <input type="text" class="form-control" formControlName="rollNumber">
+            <div class="error danger alert-danger" *ngIf="formGroup.get('rollNumber').errors  && (formGroup.get('rollNumber').dirty || isFormSubmitAttempted)">
+                    <p> Please enter valid roll number </p>
+                </div>
+        </div>
+        <div class="form-group-item form-group">
+            <label>Class</label>
+            <input type="text" class="form-control" formControlName="class">
+            <div class="error alert-danger alert-danger" *ngIf="formGroup.get('class').errors  && (formGroup.get('class').dirty || isFormSubmitAttempted)">
+                    <p> Please enter valid class </p>
+                </div>
+        </div>
+
+        <div class="form-group-item form-group">
+            <button (click)="submitForm()" class="btn btn-primary">submit</button>
+        </div>
+    </form>
+</div>
