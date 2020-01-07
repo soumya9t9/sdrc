@@ -52,7 +52,7 @@ export class AddStudentComponent implements OnInit {
       name: studentData.name,
       mobile: parseInt(studentData.mobile),
       email: studentData.email,
-      dob: studentData.dob ? new Date(studentData.dob) : null,
+      dob: studentData.dob ? new Date(studentData.dob).toISOString().substring(0,10) : null,
       rollNumber: studentData.rollNumber,
       class: studentData.class
     }
