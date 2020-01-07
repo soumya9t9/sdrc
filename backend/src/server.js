@@ -72,6 +72,39 @@ app.get("/students", (req, res) => {
     }
 });
 
+
+app.post("/student/edit", (req, res) => {
+    console.log("i am editing");
+    console.log(req);
+    responseHandler(res);
+    let response = {
+        status: STATUS.success,
+        data: null,
+    }
+
+    var query = "update student set name = ?, email = ?, mobile = ?, dob = ?, rollNumber = ?, class = ? where id = ?";
+
+    var body = req.body;
+    console.log("", body);
+    var values = [body.name, body.email, body.mobile, body.dob, body.rollNumber, body.class, body.id];
+    try {
+        database.query(query, values, (err, dbres) => {
+            console.log(err);
+            console.log(dbres);
+            err ? response.status = STATUS.error : STATUS.success;
+            if (!err) {
+                response.data = dbres;
+                response.status = dbres && dbres.changedRows > 0;
+            }
+            res.send(response);
+        });
+    } catch {
+        response.status = STATUS.error;
+        res.send(response);
+    }
+
+});
+
 app.post("/student/:id", (req, res) => {
     responseHandler(res);
     const query = "SELECT * from student Where id = ?";
@@ -105,36 +138,6 @@ app.post("/student/:id", (req, res) => {
     }
 })
 
-app.post("/student/edit", (req, res) => {
-    console.log(req);
-    responseHandler(res);
-    let response = {
-        status: STATUS.success,
-        data: null,
-    }
-
-    var query = "update student set name = ?, email = ?, mobile = ?, dob = ?, rollNumber = ?, class = ? where id = ?";
-
-    var body = req.body;
-    console.log("", body);
-    var values = [body.name, body.email, body.mobile, body.dob, body.rollNumber, body.class, body.id];
-    try {
-        database.query(query, values, (err, dbres) => {
-            console.log(err);
-            console.log(dbres);
-            err ? response.status = STATUS.error : STATUS.success;
-            if (!err) {
-                response.data = dbres;
-                response.status = dbres && dbres.changedRows > 0;
-            }
-            res.send(response);
-        });
-    } catch {
-        response.status = STATUS.error;
-        res.send(response);
-    }
-
-});
 
 app.post("/add-student", (req, res) => {
     console.log(req);
@@ -145,7 +148,7 @@ app.post("/add-student", (req, res) => {
     }
     var query = "insert into student(name, email, mobile, dob, rollNumber, class, id) value(?,?,?,?,?,?,?)";
     var body = req.body;
-    var values = [body.name, body.email, body.mobile, body.dob, body.rollNumber, body.class, Math.random()];
+    var values = [body.name, body.email, body.mobile, body.dob, body.rollNumber, body.class, Math.random() * 1000000];
     try {
         database.query(query, values, (err, dbres) => {
 
