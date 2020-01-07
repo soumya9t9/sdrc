@@ -35,7 +35,7 @@ export class AddStudentComponent implements OnInit {
   createForm() {
     this.formConfig = {
       id: ['', ],
-      name: ['', Validators.required],
+      name: ['', Validators.compose([Validators.required, ValidatorService.verifyNotEmptySpace])],
       mobile: ['', Validators.compose([Validators.required, ValidatorService.verifyMobile])],
       email: ['', Validators.compose([Validators.required, ValidatorService.verifyEmail])],
       dob: ['', Validators.compose([Validators.required, ValidatorService.verifyPastDates])],
