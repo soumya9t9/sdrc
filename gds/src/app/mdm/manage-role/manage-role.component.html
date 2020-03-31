@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <div class="row question-row">
+    <div class="col-lg-2 left-list">
+      <app-links-side-menu></app-links-side-menu>
+    </div>
+    <div class="col-lg-10 content-sec offset-lg-2 ">
+      <h2 class="page-heading">Manage Role</h2>
+
+      <!-- FORM START -->
+      <form class="row" #f="ngForm" (submit)="publishData(f)">
+
+        <!-- ROLE NAME INPUT START -->
+        <div class="col-md-12 margin-fields">
+          <mat-form-field>
+            <input matInput name="roleName" maxlength="100" placeholder="Role name" required
+              [(ngModel)]="selectionsValue.roleName">
+            <mat-error class="padding-bottom">
+              {{f.controls['roleName']?.errors?.pattern ? 'Role Name accepts only aplhanumeric and white space' : 'Please Enter the Role Name '}}
+            </mat-error>
+          </mat-form-field>
+          <div class="hints">({{selectionsValue?.roleName?.length ? selectionsValue?.roleName?.length: 0}} / 100)</div>
+        </div>
+        <!-- ROLE NAME INPUT END -->
+
+        <!-- ROLE PERMISSIONS START -->
+        <div class="col-md-12 margin-fields">
+          <mat-form-field>
+            <mat-label>Permissions</mat-label>
+            <mat-select required [(ngModel)]="selectionsValue.permissions" matInput multiple name="permissions"
+              [compareWith]="comparer">
+              <mat-label>Select permissions</mat-label>
+              <mat-option *ngFor="let eachPermission of allPermissions" [value]="eachPermission"
+                selected=selectionsValue.permissions.has(eachPermission)>
+                {{eachPermission.description}}</mat-option>
+            </mat-select>
+            <mat-error class="padding-bottom">
+              Please select atleast one permission!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <!-- ROLE PERMISSION END -->
+
+        <!-- <mat-form-field class="example-month-picker">
+          <input matInput [matDatepicker]="datepicker" [max]="maxDate" placeholder="Angular forms" [formControl]="date"
+            readonly>
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker 
+          panelClass="example-month-picker" 
+          [touchUi]="touchUi" 
+          startView="multi-year" 
+          (yearSelected)="_yearSelectedHandler($event,datepicker)">
+          </mat-datepicker>
+        </mat-form-field> -->
+
+        <!-- BUTTONS START -->
+        <div class="col-md-12 form-group btns-desgn text-right">
+          <button mat-button class="btn submit-btn" type="submit">Publish</button>
+          <button mat-button class="btn submit-btn reset-btn" type="button" (click)="resetForm(f)">Reset</button>
+        </div>
+        <!-- BUTTONS END -->
+      </form>
+      <!-- FORM END -->
+
+
+      <!-- TABLE START -->
+      <div class="col-md-12 table-content">
+        <div class="table-btn search">
+          <div class="col-md-3 form-group">
+            <input class="form-control" type="text" id="myInput" [(ngModel)]="searchFilter" placeholder="Search"
+              maxlength="100" />
+            <span *ngIf="searchFilter" class="search-close" (click)="clearSearchText();">
+              <!-- <i class="fa fa-times-circle" style="font-size:22px;" aria-hidden="true"></i>  -->
+            </span>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead style="border-bottom: 5px solid #fff;">
+              <tr>
+                <th *ngFor="let col of tableColumn; let colms=index"
+                  [ngClass]="colms == 0 ? 'selected': 'oddTabelHead'">
+                  {{col.split('#')[1]}}
+                </th>
+                <th class="oddTabelHead td-minWidth text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let rowDetails of tableData | searchPipe: searchFilter | paginate: {itemsPerPage: itemsPerPage, currentPage: p}; let i = index;">
+                <td *ngFor="let col of tableColumn">
+                  <div *ngIf="rowDetails">{{rowDetails[col.split('#')[0]]}}</div>
+                </td>
+                <td class="td-minWidth" *ngIf="tableData.length!=0">
+
+                  <span class="fa-stack iconImg" matTooltip="Edit">
+                    <img class="d-block w-100" src="assets/images/edit.png" (click)="editRole(rowDetails)">
+                  </span>
+                  <span>
+                    <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="rowDetails.isEnabled"
+                      [checked]="rowDetails.isEnabled" (change)="openModalOnClick(rowDetails)">
+                      <!-- {{rowDetails.isEnabled ? "Disable" : "Enable"}} -->
+                    </mat-slide-toggle>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          *ngIf="(tableData && !tableData.length) || (tableData && tableData.length && (tableData | searchPipe: searchFilter).length==0)"
+          class="col-md-12 text-center no-data">No Data Found.
+        </div>
+        <div class="col-md-12 pagination-margin"
+          *ngIf="(tableData && tableData.length && (tableData | searchPipe: searchFilter).length)">
+          <pagination-controls (pageChange)="p = $event;" class="pagination justify-content-end"></pagination-controls>
+        </div>
+      </div>
+      <!-- TABLE END -->
+
+    </div>
+  </div>
+</div>

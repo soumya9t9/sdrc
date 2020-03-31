@@ -1,0 +1,291 @@
+<section id="sdg-banner" class="sdg-banner container-fluid">
+  <div class="row">
+    <div class="col-md-6 p-0 banner-gandhi">
+      <div class="sdg-wheel-container">
+        <app-svg-wheel (allGoalData)="setAllGoalData($event)" [selectedWheelGoal]="selectedWheelGoal"></app-svg-wheel>
+      </div>
+      
+      <div class="goal-details">
+        <div style="min-height: 100px;">
+        <div class="goal-logo" *ngIf="selectedWheelGoal && selectedWheelGoal.national_sdmx_code != 'GOAL_0'">
+        <img [src]="'assets/images/icon/Charkha_Goal ' + selectedWheelGoal.national_sdmx_code.split('_')[1]+ '.png'" width="85px">
+        </div>
+        <div class="goal-desc">
+          <div *ngIf="selectedWheelGoal && selectedWheelGoal.national_sdmx_code == 'GOAL_0'">
+            <h5>About Sustainable Development Goals(SDGs)</h5>
+            <p style="margin-bottom: 0;">The Sustainable Development Goals(SDGs) are an ambitious commitment by the
+              world nations which set
+              out a universal and an unprecedented agenda that embraces economic, environmental and social aspects
+              of the societies. The progress of the world to meet the SDGs, largely depends on India's progress. </p>
+          </div>
+          <div *ngIf="selectedWheelGoal && selectedWheelGoal.national_sdmx_code != 'GOAL_0'">
+          <h5>{{goalShortName[selectedWheelGoal.national_sdmx_code]}}</h5>
+          <p style="margin-bottom: 0;"> </p>
+{{goalDescription[selectedWheelGoal.national_sdmx_code]}}
+          </div>
+        </div>
+      </div>
+        <div class="ind-count-sec" *ngIf="allGoalwiseCount && selectedWheelGoal">
+          <div class="target-count goal-count">
+            <div class="count">
+              {{allGoalwiseCount[selectedWheelGoal.national_sdmx_code].targets}}
+            </div>
+            <div>Targets</div>
+          </div>
+          <div class="ind-count goal-count">
+            <div class="count">
+              {{allGoalwiseCount[selectedWheelGoal.national_sdmx_code].indicators}}
+            </div>
+            <div>Indicators</div>
+          </div>
+          <div class="dept-count goal-count">
+            <div class="count">
+              {{allGoalwiseCount[selectedWheelGoal.national_sdmx_code].department}}
+            </div>
+            <div>Departments</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6 p-0 banner-chart">
+      <div class="sdg-index-selector-container ">
+        <div class="sdg-index-selector">
+          <div class="sdg-index-head">
+            <span>{{'Overall SDG Index'}}</span>
+          </div>
+          <div class="sdg-index-head">
+            <mat-form-field class="no-border">
+              <mat-select name="timeperiod" [(ngModel)]="selectedTimeperiodId"
+                (selectionChange)="selectTimeperiod(selectedTimeperiodId)">
+                <mat-option *ngFor="let opt of timeperiods" [value]="opt.id">
+                  {{opt.timePeriod}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="sdg-index-head" style="border-right: 0;">
+            <a (click)="backToSDG()">Back to SDGs</a>
+          </div>
+          <div class="homepage-help">
+<img src="assets/images/Help.png" width="20px">
+          </div>
+        </div>
+      </div>
+      <table class="table sdg-bar-table table-borderless" *ngIf="DistrictWiseGoalData">
+        <thead>
+          <tr>
+            <th scope="col" class="text-left" style="width: 140px;">Area</th>
+            <th scope="col">SDGs</th>
+            <th scope="col" style="width: 30px;">Rating</th>
+            <!-- 
+            <th scope="col" style="width: 100px;">Score</th> <td>{{distGoal.rank}}</td>
+            <td>{{distGoal.score}}</td>-->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let distGoal of DistrictWiseGoalData; let i=index">
+            <td class="text-left dist-col" (click)="getDistrictwiseGoalTrend(distGoal)">{{distGoal.areaName}}</td>
+            <td>
+              <div class="sdg-bar" *ngIf="barSwitch">
+
+                <div [@slideRightLeft] class="sdg-goal" [ngClass]="goal.goalId"
+                  *ngFor="let goal of distGoal.sdgs | removeIndex; let i=index" [matTooltip]="setTooltipTitle(distGoal, goal.goalId)"
+                  [matTooltipPosition]="'above'" matTooltipClass="bar-goals"
+                  [style.width]="getGoalBarWidthFromScore(distGoal, goal.goalId)"
+                  (click)="openIndicatorModalData(distGoal, goal.goalId)">
+                </div>
+
+              </div>
+
+            </td>
+            <td>
+              <div class="sdg-tab-rating" [ngClass]="{
+              'achiever': getGoalScore(distGoal) >= 99,
+              'front-runner': getGoalScore(distGoal) >= 65 && getGoalScore(distGoal) < 99, 
+              'performer': getGoalScore(distGoal) >= 50 && getGoalScore(distGoal) < 65,
+              'aspirant': getGoalScore(distGoal) >= 0 && getGoalScore(distGoal) < 50,
+              'info-not-avail': getGoalScore(distGoal) == null
+            }">{{getGoalScore(distGoal)}}
+              </div>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+      <div class="sdg-table-legends">
+        <span class="legend-head">Rating:</span>
+        <div class="legend">
+          <div class="legend-circle achiever">{{countOfDistrictsStatuswise('Achiever')}}</div>
+          <span class="legend-text"> Achiever (>99) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle front-runner">{{countOfDistrictsStatuswise('Front Runner')}}</div>
+          <span class="legend-text"> Front Runner (65-99) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle performer">{{countOfDistrictsStatuswise('Performer')}}</div>
+          <span class="legend-text"> Performer (50-64) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle aspirant">{{countOfDistrictsStatuswise('Aspirant')}}</div>
+          <span class="legend-text"> Aspirant (0-49) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle info-not-avail">{{countOfDistrictsStatuswise('NA')}}</div>
+          <span class="legend-text"> Information Unavailable </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="sdg-line" *ngIf="goalTrendViewOn"><img src="assets/images/icon/1.png" width="100%"></div>
+<section id="goal-list-container" *ngIf="goalTrendViewOn" class="goal-list-container container-fluid">
+
+  <div class="goal-list-heading">
+    <h3>{{selectedStackArea.areaName}}: Current Assessment - SDG Dashboard </h3>
+  </div>
+  <div class="row" *ngFor="let row of layoutGoals; let i = index;">
+    <div class="col-md-by9 col-sm-3 col-6 ind-goal" *ngFor="let col of row; let j=index">
+      <div class="goal-icon" [ngClass]="{'sdg-icon': i==0 && j==0}"
+        (click)="!(i==0 && j==0) ? getIndicatorTableData(col, i ,j):''">
+        <img [src]="!(i==0 && j==0) ? (col | goalIconName): 'assets/images/Sustainalbe_development_Goals_Logo.svg'"
+          width="100%" height="100%">
+      </div>
+
+    </div>
+
+  </div>
+  <div class="goal-legend-container text-center">
+    <div class="goal-trend-legends">
+      <span class="legend-head">Trend: </span>
+      <div class="legend">
+        <img src="assets/images/icon/Improved.png" width="14px">
+        <span class="legend-text"> Improved </span>
+      </div>
+      <div class="legend">
+        <img src="assets/images/icon/No Change.png" width="24px">
+        <span class="legend-text"> No Change </span>
+      </div>
+      <div class="legend">
+        <img src="assets/images/icon/Dropped.png" width="14px">
+        <span class="legend-text"> Dropped </span>
+      </div>
+      <div class="legend">
+        <img src="assets/images/icon/No Data.png" width="20px">
+        <span class="legend-text"> No Data </span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="indicator-performance" [@slideUpIn] *ngIf="indicatorTrendTableViewOn">
+
+  <h3 class="ind-perf-head">{{selectedStackArea.areaName}}: Performance by Indicator</h3>
+  <img src="assets/images/icon/Close.png" class="close-btn" (click)="closeIndicatorTableView()">
+  <div class="ind-performance-main" style="height: 100%;">
+    <div class="row ind-per-mainrow">
+      <div class="left-panel col-md-3">
+        <div [ngStyle]="{'background-color': selectedColor.color1}" style="height: 100%;">
+
+          <div class="goal-symbol text-center">
+            <img *ngIf="selectedGoalTrendView" width="100%"
+              src="{{'assets/images/icon/' + selectedGoalTrendView.national_sdmx_code + '.png'}}">
+          </div>
+          <div class="goal-score">
+            <div class="score">
+              <div class="score-label">Score</div>
+              <div class="score-val">{{selectedGoalScoreModalView}}</div>
+            </div>
+            <div class="trend">
+              <img src="{{'assets/images/icon/' + selectedGoalTrendModalView+'_arrow.png'}}" width="62px">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ind-panel col-md-9">
+        <div class="table-responsive" style="height: 100%;">
+          <table class="indicator-table table">
+            <thead>
+              <tr class="text-center">
+                <th class="text-left">Indicator</th>
+                <th style="width: 120px;">Value</th>
+                <!-- <th style="width: 75px;">Rating</th> -->
+                <th style="width: 75px;">Trend</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of indicatorTrendTableData; let i=index;" class="text-center">
+                <td class="text-left">{{data.indicatorName}}</td>
+                <td>{{data.value != null ? data.value: '-'}}</td>
+                <!-- <td>
+                  <div class="sdg-tab-rating" [ngClass]="{
+              'achiever': data.value >= 99,
+              'front-runner': data.value >= 65 && data.value < 99, 
+              'performer': data.value >= 50 && data.value < 65,
+              'aspirant': data.value >= 0 && data.value < 50,
+              'info-not-avail': data.value == null
+            }">
+                  </div>
+                </td> -->
+                <td>
+                  <img *ngIf="data.trend == 'improved'" src="assets/images/icon/Improved.png" width="14px">
+                  <img *ngIf="data.trend == 'noChange'" src="assets/images/icon/No Change.png" width="24px">
+                  <img *ngIf="data.trend == 'dropped'" src="assets/images/icon/Dropped.png" width="14px">
+                  <img *ngIf="data.trend == 'noData'" src="assets/images/icon/No Data.png" width="20px">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="legend-section modal-legends">
+      <!-- <div class="rating-legends">
+        <span class="legend-head">Rating: </span>
+        <div class="legend">
+          <div class="legend-circle achiever"></div>
+          <span class="legend-text"> Achiever (>99) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle front-runner"></div>
+          <span class="legend-text"> Front Runner (65-99) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle performer"></div>
+          <span class="legend-text"> Performer (50-64) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle aspirant"></div>
+          <span class="legend-text"> Aspirant (0-49) </span>
+        </div>
+        <div class="legend">
+          <div class="legend-circle info-not-avail"></div>
+          <span class="legend-text"> Information Unavailable </span>
+        </div>
+      </div> -->
+      <div class="trend-legends">
+        <span class="legend-head">Trend: </span>
+        <div class="legend">
+          <img src="assets/images/icon/Improved.png" width="14px">
+          <span class="legend-text"> Improved </span>
+        </div>
+        <div class="legend">
+          <img src="assets/images/icon/No Change.png" width="24px">
+          <span class="legend-text"> No Change </span>
+        </div>
+        <div class="legend">
+          <img src="assets/images/icon/Dropped.png" width="14px">
+          <span class="legend-text"> Dropped </span>
+        </div>
+        <div class="legend">
+          <img src="assets/images/icon/No Data.png" width="20px">
+          <span class="legend-text"> No Data </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

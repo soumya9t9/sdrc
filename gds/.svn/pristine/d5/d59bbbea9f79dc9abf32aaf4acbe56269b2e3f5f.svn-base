@@ -1,0 +1,99 @@
+<div class="container p-0">
+  <div class="d-flex">
+    <div class="col-md-3 p-0" *ngIf="allDepartment">
+      <label class="select-lable" for="usr">Select Department :</label>
+      <mat-form-field>
+        <mat-select name="framework" [(ngModel)]="selectedDepartment" required
+          (selectionChange)="emitDepartmentChange()">
+          <mat-option *ngFor="let opt of allDepartment" [value]="opt.id" [id]="opt">
+            {{opt.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error class="padding-bottom ">
+          Please select Department
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 p-0" *ngIf="areaDropdown.list">
+      <label class="select-lable" for="usr">Select Area :</label>
+      <mat-form-field>
+        <mat-select name="areaIds" [(ngModel)]="areaDropdown.selectedValue" required
+           multiple>
+          <mat-option (click)="emitAreaChange(opt.areaId)" *ngFor="let opt of areaDropdown.list" [value]="opt.areaId" [id]="opt">
+            {{opt.distName}}
+          </mat-option>
+        </mat-select>
+        <mat-error class="padding-bottom ">
+          Please select Area
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <form #newF="ngForm" class="m-1">
+    <div class="row dataentry-container">
+      <div class="dataentry-form-container col-md-12">
+        <div class="dataentry-form">
+          <div class="container-body">
+
+            <button class="dwn-btn">
+              <img alt="" class="down-up-icon" src="./assets/images/Download.png" (click)="downloadFile(newF)">
+              <!-- <i class="fa fa-download fa-4x" aria-hidden="true" style="cursor: pointer; color: #a39fc0;"></i> -->
+            </button>
+            <h4 class="download-info"><span *ngIf="currentSelectedMapper">{{currentSelectedMapper.downloadMsg}}</span>
+            </h4>
+            <b> Note : </b><span>Please download the template
+              from here to upload the data </span>
+          </div>
+          <div class="dataentry-form-border"><img src="assets/images/Stripe_3.svg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row dataentry-container">
+      <div class="dataentry-form-container col-md-12">
+        <div class="dataentry-form">
+          <div class="container-body text-center">
+            <button class="dwn-btn">
+
+              <img alt="" class="down-up-icon" src="./assets/images/Upload.png" (click)="uploadClicked()">
+            </button>
+            <h4 id="uploadBtn" class="download-info" *ngIf="currentSelectedMapper">{{currentSelectedMapper.uploadMsg}}
+            </h4>
+            <b> Note : </b><span>Please upload the form downloaded from this page.</span>
+
+
+          </div>
+          <!-- end upload file section -->
+          <span><input type="file" id="fileUpload" (change)="onFileChange($event, newF)" hidden
+              accept=".xls,.XLS, .xlsx, .XLSX"></span>
+          <div class="dataentry-form-border"><img src="assets/images/Stripe_3.svg"></div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div class="modal fade" id="downloaderrModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-notify modal-error" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="heading err-lead">Error</p>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <p>{{errorMessage}}</p>
+          <div *ngIf="fileName">Download the file to kown more:
+            <div class="error-link" (click)="download(fileName)" *ngIf="fileName">
+              {{fileName}}
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary close-btn d-block modal-btn" data-dismiss="modal"
+          (click)="modalClose()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

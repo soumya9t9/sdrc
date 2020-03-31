@@ -1,0 +1,149 @@
+
+    <div class="row">           
+
+      <div class="col-md-12">
+        <div class="text-right">
+        <!-- <div class="col-md-3">
+          <div class="form-group">
+              <button class="btn btn-submit" [disabled]="tableService.disableDeleteBtn">Delete All</button>
+          </div>
+        </div> -->
+       
+        <div *ngIf="downloadPdf" class="table-btn">
+          <button class="btn btn-pdf btn-submit" (click)="createPdf(pdf, 'table-fixed-container'+id)"><span><i class="fa fa-file-pdf-o" style="font-size:15px;"
+                aria-hidden="true"></i></span>&nbsp;Download PDF</button>
+        </div>
+        <div *ngIf="downloadExcel" class="table-btn">
+          <button class="btn btn-excel btn-submit" (click)="tableToExcel(id)"><span><i class="fa fa-file-excel-o"
+                style="font-size:15px;" aria-hidden="true"></i></span>&nbsp;Download Excel</button>
+        </div>
+        <div *ngIf="downloadPdfByServer" class="table-btn">
+          <button class="btn btn-pdf btn-submit" (click)="downloadPdfByServerClicked(id, rowData)"><span><i class="fa fa-file-pdf-o" style="font-size:15px;"
+                aria-hidden="true"></i></span>&nbsp;Download PDF</button>
+        </div>
+        <div *ngIf="downloadExcelByServer" class="table-btn">
+          <button class="btn btn-excel btn-submit" (click)="downloadExcelByServerClicked(id, rowData)"><span><i class="fa fa-file-excel-o"
+                style="font-size:15px;" aria-hidden="true"></i></span>&nbsp;Download Excel</button>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="col-md-12">
+    <div class="parent-tabl-container">
+    <kendo-pdf-export #pdf paperSize="A2" margin="2cm" [repeatHeaders]="true"  [scale]="0.6">
+    <div class="filled-form view-form" id="{{'table-fixed-container'+id}}" 
+    *ngIf="!((rowData && !rowData.length) || (rowData && rowData.length && (rowData | searchPipe: searchFilter).length==0))"
+    (scroll)="fixTableHeader($event)" style="overflow: auto;">                 
+      
+      <!-- Header fixed table section -->
+
+      <!-- <div  *ngIf="headerFixed" id="{{'header-fixed'+id}}" class=" header-fixed"> 
+                <div id="{{id+'fixedcontainer'}}" class="fixedcontainer">
+                  <div class="th" *ngFor="let col of columnData" [ngClass]="{selected: col == columns}">{{col}} 
+                    <i *ngIf="sorting && (!sortExcludeColumn || (sortExcludeColumn && sortExcludeColumn.indexOf(col) == -1))" (click)="sort(col)" class="fa fa-caret-up fa-lg fa-sorting" [ngClass]="{
+                        'fa-sort-asc': (col == columns && !isDesc), 
+                        'fa-sort-desc': (col == columns && isDesc) }" aria-hidden="true">
+                    </i>
+                  </div>
+                </div>
+            </div> -->
+            <table *ngIf="headerFixed" id="{{'header-fixed'+id}}" class="table table-bordered header-fixed">
+                <thead>                    
+                    <tr>
+                      <!-- <th><input type="checkbox" [(ngModel)]="tableService.checkStatus" (click)="tableService.selectAllCheckBoxes(rowData, !tableService.checkStatus)">&nbsp; Select All </th> -->
+                      <th style="width: 67px; min-width: 67px;">Sl. No.</th>
+                      <th style="width: 100px;" *ngFor="let col of columnData | excludeElementPipe:'Districts'" class="th" [ngClass]="{selected: col == columns}">{{col}}
+                        <i *ngIf="sorting && (!sortExcludeColumn || (sortExcludeColumn && sortExcludeColumn.indexOf(col) == -1))" (click)="sort(col)" class="fa fa-caret-up fa-lg fa-sorting" [ngClass]="{
+                            'fa-sort-asc': (col == columns && !isDesc), 
+                            'fa-sort-desc': (col == columns && isDesc) }" aria-hidden="true">
+                        </i>
+                      </th>
+                      <th style="width: 60px">Action</th>
+                      <th style="width: 140px">Remarks</th>
+                    </tr>
+			
+                  </thead>
+                  <tbody *ngIf="rowData">
+                      <tr [ngClass]="[rowDetails && rowDetails.CssClass ? rowDetails.CssClass:'', rowDetails.Status == 'grey' ? 'disabled':'']" *ngFor="let rowDetails of rowData | removeTotalPipe: removeTotal | searchPipe: searchFilter | sortPipe: {property: columns, direction: direction}:isTotalAvailable | paginate: { itemsPerPage: itemsPerPage, currentPage: p, id:id }; let i = index;">
+                        <!-- <td><input type="checkbox" [(ngModel)]="rowDetails.isChecked" (change)="tableService.singleCheckBoxClicked(tableService.rowData)"></td> -->
+                        <td>{{i+1}}</td>
+                        <td *ngFor="let col of columnData" [ngClass]="col">
+                          <div *ngIf="col != 'Status'">{{rowDetails[col] == null || rowDetails[col] == "null" || rowDetails[col] == "" ? "-": rowDetails[col]}}</div>
+                          <div *ngIf="col == 'Status'">
+                            <div class="status-circle" [ngClass]="rowDetails[col]">
+
+                            </div>
+                          </div>
+                         
+
+                        </td>
+                        <td>
+                          <input type="checkbox" [(ngModel)]="rowDetails['isChecked']" (change)="CheckBoxClicked(data)">
+                        </td>
+                        <td>
+                          <textarea style="width: 100%;" [(ngModel)]="rowDetails['Message']" [disabled]="!rowDetails['isChecked']" ></textarea>
+                        </td>
+                      </tr>   
+                    </tbody>
+                </table>
+
+         <!-- main table -->
+          <table class="table table-bordered" id="{{id}}" >
+            <thead>            
+              <tr>
+                <th style="width: 67px; min-width: 67px;">Sl. No.</th>
+                <!-- <th><input type="checkbox" [(ngModel)]="tableService.checkStatus" (click)="tableService.selectAllCheckBoxes(rowData, !tableService.checkStatus)">&nbsp; Select All </th> -->
+                <th  style="width: 100px;" *ngFor="let col of columnData | excludeElementPipe:'Districts'" class="th" [ngClass]="{selected: col == columns}">{{col}}
+                  <i *ngIf="sorting && (!sortExcludeColumn || (sortExcludeColumn && sortExcludeColumn.indexOf(col) == -1))" (click)="sort(col)" class="fa fa-caret-up fa-lg fa-sorting" [ngClass]="{
+                      'fa-sort-asc': (col == columns && !isDesc), 
+                      'fa-sort-desc': (col == columns && isDesc) }" aria-hidden="true">
+                  </i>
+                </th>
+                <th style="width: 60px">Action</th>
+                      <th style="width: 140px">Remarks</th>
+              </tr>
+
+            </thead>
+            <tbody *ngIf="rowData">
+              <tr [ngClass]="[rowDetails && rowDetails.CssClass ? rowDetails.CssClass:'', rowDetails.Status == 'grey' ? 'disabled':'']" *ngFor="let rowDetails of rowData | removeTotalPipe: removeTotal | searchPipe: searchFilter | sortPipe: {property: columns, direction: direction}:isTotalAvailable | paginate: { itemsPerPage: itemsPerPage, currentPage: p, id:id }; let i = index;">
+                <!-- <td><input type="checkbox" [(ngModel)]="rowDetails.isChecked" (change)="tableService.singleCheckBoxClicked(tableService.rowData)"></td> -->
+                <td>{{i+1}}</td>
+                <td *ngFor="let col of columnData" [ngClass]="col">
+                  <div *ngIf="col != 'Status'">{{rowDetails[col] == null || rowDetails[col] == "null" || rowDetails[col] == "" ? "-": rowDetails[col]}}</div>
+                          <div *ngIf="col == 'Status'">
+                            <div class="status-circle" [ngClass]="rowDetails[col]">
+
+                            </div>
+                          </div>
+                          
+                </td>
+                <td>
+                  <input type="checkbox" [(ngModel)]="rowDetails['isChecked']" (change)="CheckBoxClicked(data)">
+                </td>
+                <td>
+                  <textarea [(ngModel)]="rowDetails['Message']" class="remark-box" [ngClass]="{'not-filled': rowDetails['isChecked'] && !rowDetails['Message'] }" style="width: 100%" [disabled]="!rowDetails['isChecked']" ></textarea>
+                </td>
+              </tr>   
+            </tbody>
+          </table>   
+        
+        </div>
+        </kendo-pdf-export>
+        <br/>
+        <div  *ngIf="(rowData && !rowData.length) || (rowData && rowData.length && (rowData | searchPipe: searchFilter).length==0)" class="col-md-12 text-center search-area">No Data Found.</div>
+        <div *ngIf="isPaginate && rowData && rowData.length">
+          <pagination-controls (pageChange)="p = $event;" id="{{id}}" class="pagination-view"></pagination-controls>
+        </div>
+      </div>
+     </div>
+    </div>
+<!-- <div class="row">
+  <div class="col-md-12">
+    <div class="action-buttons ">
+      <button  mat-raised-button (click)="submitData()"
+                          class="btn-margin submit-btn" type="submit" color="primary">Submit</button>
+      
+    </div>
+  </div>
+</div> -->

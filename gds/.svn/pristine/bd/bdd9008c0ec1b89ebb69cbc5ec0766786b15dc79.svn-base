@@ -1,0 +1,13 @@
+.page-heading {
+    border-bottom: 1px solid gray;
+}
+.rejection-container {
+    margin-top: 80px;
+}
+::ng-deep .mat-tab-labels {
+    background-color: transparent;
+    margin-top: 20px;
+}
+.data-sec{
+    margin-bottom: 25px;
+}

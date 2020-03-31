@@ -1,0 +1,186 @@
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import saveAs from 'save-as';
+import { Constants } from 'src/app/constants';
+import { CmsServiceService } from '../services/cms-service.service';
+import { HttpResponse } from '@angular/common/http';
+import { AppService } from '@src/app/app.service';
+import { isArray } from 'util';
+import { ToastService } from '@src/app/service/toast.service';
+import { Router } from '@angular/router';
+import { environment } from '@src/environments/environment';
+declare var $: any;
+@Component({
+  selector: 'excel-operation-view',
+  templateUrl: './excel-operation.component.html',
+  styleUrls: ['./excel-operation.component.scss']
+})
+export class ExcelOperationComponent implements OnInit, OnChanges {
+
+  @Input() routedParam;
+  @Input() selectedDepartment;
+  @Input() allDepartment;
+  @Output() departmentChanged: EventEmitter<any> = new EventEmitter<any>();
+  @Output() areaChanged: EventEmitter<any> = new EventEmitter<any>();
+  form: NgForm;
+  uploadFileDetails: any;
+  validationMsg: any;
+  errorMessage;
+  fileName: string = '';
+  displayFileName;
+  currentFileUpload: boolean = false;
+  currentSelectedMapper;
+  areaDropdown = {
+    selectedValue: null,
+    list: null
+  }
+  mapper = {
+    'user': null,
+    'frequency': null,
+    'role': null,
+    'indicator': null,
+    'unit': null,
+    'source': null,
+    'scheme': null,
+    'sdg-target': null,
+    'department': null,
+    'district': null,
+    'target-value': {
+      upload: "api/v1/targetdataentry/uploadTargetEntryTemplate",
+      download: "api/v1/targetdataentry/downloadTargetDataEntry",
+      uploadMsg: "Upload Target Entry Excel",
+      downloadMsg: "Download Target Entry Template"
+    },
+  }
+
+  constructor(
+    private cmsService: CmsServiceService,
+    private appService: AppService,
+    private toaster: ToastService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    let userDetails = this.appService.getUserDetails();
+    if (userDetails && isArray(userDetails.designationNames) && userDetails.designationNames.includes("ADMIN") && !(isArray(this.allDepartment) && this.allDepartment.length)) {
+      this.cmsService.fetchAllData("v1/department/findAll").subscribe(res => {
+        if (isArray(res)) {
+          this.allDepartment = res;
+          this.selectedDepartment = res[0].id;
+        }
+      });
+    }
+    if (this.routedParam == "target-value") {
+      this.areaDropdown.list = [{ areaId: "ALL", distName: "Select All" }];
+      this.areaDropdown.selectedValue = ["ALL"];
+      this.cmsService.fetchAllData("v1/district/findAll").subscribe(res => {
+        if (isArray(res)) {
+          this.areaDropdown.list = [ {areaId: "ALL", distName: "Select All" }, ...res];
+        }
+      });
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.routedParam) {
+      this.currentSelectedMapper = this.mapper[this.routedParam]
+    }
+  }
+
+  downloadFile(form: NgForm) {
+    if (!this.mapper[this.routedParam]) {
+      return null;
+    }
+    let queryParam = {};
+    this.selectedDepartment ? queryParam['departmentId'] = this.selectedDepartment : '';
+    if (this.routedParam == "target-value") {
+      !this.areaDropdown.selectedValue.length ? this.areaDropdown.selectedValue = ['ALL'] : '';
+      !this.areaDropdown.selectedValue.includes('ALL') ? queryParam['areaIds'] = this.areaDropdown.selectedValue || [] : '';
+    }
+    this.cmsService.downloadTemplate(this.mapper[this.routedParam].download, queryParam).subscribe(
+      (resp) => {
+        let data = resp.body;
+        // saveAs(data, resp.headers.get('content-disposition').split("=")[1]);
+        this.download(data);
+        this.toaster.success(Constants.message.downloadExcel);
+      },
+      error => {
+        // this.toaster.error(this.errorMessage);
+      }
+    );
+  }
+
+  baseUrl$ = environment.apiBaseUrl;
+  /**
+   * Download the report excel
+   * @param fileName 
+   */
+  download(fileName) {
+    if (fileName) {
+      this.displayFileName = fileName;
+      let data = 'fileName=' + fileName + '&access_token=' + localStorage.getItem("access_token");
+      //data can be string of parameters or array/object
+      data = typeof data == 'string' ? data : $.param(data);
+      //split params into form inputs
+      var inputs = '';
+      let url = this.baseUrl$ + Constants.HOME_URL + 'api/v1/targetdataentry/downloadTarget';
+
+      let fd = new FormData();
+      $.each(data.split('&'), function () {
+        var pair = this.split('=');
+        fd.append(pair[0], pair[1]);
+        inputs += '<input type="hidden" name="' + pair[0] + '" value="' + pair[1] + '" />';
+      });
+      // this.cmsService.uploadFileData(fd, 'v1/targetdataentry/downloadTarget').subscribe(res => console.log(res));
+      // send request
+      $('<form action="' + url + '" method="post">' + inputs + '</form>')
+        .appendTo('body').submit().remove();
+    };
+  }
+
+  uploadClicked() {
+    this.uploadFileDetails = null;
+    $('#fileUpload').click();
+  }
+
+  onFileChange(event, form: NgForm) {
+    let queryParam = this.selectedDepartment ? { departmentId: this.selectedDepartment } : null;
+    this.uploadFileDetails = event.target.files[0];
+    // this.fileName = $event.srcElement.files[0].name;
+    const formdata: FormData = new FormData();
+    formdata.append('file', this.uploadFileDetails);
+    if (!this.mapper[this.routedParam]) {
+      return null;
+    }
+    this.cmsService.uploadDataentryTemplate(this.mapper[this.routedParam].upload, formdata, queryParam).subscribe((response: any) => {
+
+      if (response.status && response.status == 417) {
+        this.fileName = response.body;
+        this.errorMessage = "Wrong Template";
+        $("#downloaderrModal").modal('show');
+      } else if (response.status && response.status == 200) {
+        this.toaster.success(Constants.message.uploadExcel);
+      }
+      event.target.value = ""
+    }, error => {
+    })
+  }
+  modalClose() {
+    this.uploadFileDetails = null;
+    this.fileName = null;
+  }
+  emitDepartmentChange() {
+    this.departmentChanged.emit({ departmentId: this.selectedDepartment })
+  }
+  emitAreaChange(selectedValue) {
+    if (!this.areaDropdown.selectedValue.length) this.areaDropdown.selectedValue = ['ALL'];
+    else if (selectedValue == "ALL" && this.areaDropdown.selectedValue.includes("ALL")) {
+      this.areaDropdown.selectedValue.splice(this.areaDropdown.selectedValue.findIndex(e => e !== "ALL"), 1);
+      this.areaDropdown.selectedValue = [...this.areaDropdown.selectedValue];
+    } else {
+      this.areaDropdown.selectedValue.includes("ALL") ? this.areaDropdown.selectedValue.splice(this.areaDropdown.selectedValue.findIndex(e => e == "ALL"), 1) : '';
+      this.areaDropdown.selectedValue = [...this.areaDropdown.selectedValue];
+      // this.areaChanged.emit({ departmentId: this.selectedDepartment })
+    }
+  }
+}

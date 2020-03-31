@@ -1,0 +1,228 @@
+{
+    "id": null,
+    "title": null,
+    "description": null,
+    "filepathCaptionModel": null,
+    "resourceType": null,
+    "videoLink": null,
+    "tags": null,
+    "submittedBy": null,
+    "createdDate": null,
+    "updatedDate": null,
+    "tableColumn": [
+        "sl_No#Sl. No.",
+        "roleName#Role Name",
+        "permissions#Permissions"
+    ],
+    "tableData": [
+        {
+            "sl_No": 1,
+            "roleName": "Data Collector",
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ],
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true
+        },
+        {
+            "sl_No": 2,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 3,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 4,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 5,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 6,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 7,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 8,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 9,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Dashboard_View",
+                    "id": "01"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 10,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Manage User",
+                    "id": "03"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        },
+        {
+            "sl_No": 11,
+            "roleName": "Data Collector",
+            "id": "5df73e586b530513c00ae905",
+            "tag": null,
+            "isEnabled": true,
+            "updatedOn": "16-50-2019",
+            "isApprove": true,
+            "permissions": [
+                {
+                    "label": "Manage sdg goal",
+                    "id": "04"
+                },
+                {
+                    "label": "Manage Departments",
+                    "id": "02"
+                }
+            ]
+        }
+    ]
+}

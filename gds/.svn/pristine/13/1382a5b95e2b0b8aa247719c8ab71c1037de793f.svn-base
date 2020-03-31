@@ -1,0 +1,54 @@
+<div id="map" (click)="clicked(null, null, $event)"  >
+    <div class="map_popover"><div id="map_popover_content" class="map_popover_content"></div></div>
+</div>
+
+<div class="container-fluid line-chart-section" *ngIf="lineChartVisible">
+  <div class="row district-line-chart" *ngFor="let chart of indicatorModels">
+    <button class="close trend-close" aria-hidden="true" type="button" (click)="closeViz()">
+      <i class="fa fa-window-close" aria-hidden="true"></i>
+    </button>
+    <div class="chart-head">
+    </div>
+    <div class="col-md-12 text-center" style="font-weight: 500;color: #fff">{{areaName}}</div>
+    <!-- <div class="ind-group col-md-10 col-xl-10">{{chart.indicatorName}} <div *ngIf="chart.takenInIndexCal=='YES'"><i class="fa fa-star ind-star-icon" aria-hidden="true"></i></div> </div>
+    <div *ngFor="let currentvalue of chart.chartData[0]">
+      <div class="current-value"  *ngIf="currentvalue.latest==true"> Current Value: {{currentvalue.value}} </div>
+    </div> -->
+    <app-dashboard-line-chart 
+    *ngIf="chart.chartData && chart.chartData[0] && chart.chartData[0].length && (chart.chartsAvailable[0] == 'trend')"
+        [data]="convertToLineChartFormat(chart)" [areaChart]="true" [lineWithDataPoint]="true" [unitVal]="chart.unit">
+    </app-dashboard-line-chart>
+    <!-- <div class="no-data-available" *ngIf="chart.chartData && chart.chartData[0] && !chart.chartData[0].length">
+      No data available
+    </div> -->
+    <!-- <div class="row legend-section">
+      <div class="line-legend" *ngIf="chart.chartData && chart.chartData[0] && chart.chartData[0].length">
+          <img class="target" src="assets/images/legend-15.png" *ngIf="chart.indicatorName !='INDEX: OVERALL' && chart.indicatorName !='INDEX: SDG GOAL 1'  && chart.indicatorName !='INDEX: SDG GOAL 2'
+          && chart.indicatorName !='INDEX: SDG GOAL 3' && chart.indicatorName !='INDEX: SDG GOAL 4' && chart.indicatorName !='INDEX: SDG GOAL 5' && chart.indicatorName !='INDEX: SDG GOAL 6'
+          && chart.indicatorName !='INDEX: SDG GOAL 7' && chart.indicatorName !='INDEX: SDG GOAL 8' && chart.indicatorName !='INDEX: SDG GOAL 9' && chart.indicatorName !='INDEX: SDG GOAL 10'
+          && chart.indicatorName !='INDEX: SDG GOAL 11' && chart.indicatorName !='INDEX: SDG GOAL 12' && chart.indicatorName !='INDEX: SDG GOAL 13' && chart.indicatorName !='INDEX: SDG GOAL 14'
+          && chart.indicatorName !='INDEX: SDG GOAL 15' && chart.indicatorName !='INDEX: SDG GOAL 16' && chart.indicatorName !='INDEX: SDG GOAL 17'">
+
+          <span class="title" *ngIf="chart.indicatorName !='INDEX: OVERALL' && chart.indicatorName !='INDEX: SDG GOAL 1' 
+          && chart.indicatorName !='INDEX: SDG GOAL 2' && chart.indicatorName !='INDEX: SDG GOAL 3' 
+          && chart.indicatorName !='INDEX: SDG GOAL 4' && chart.indicatorName !='INDEX: SDG GOAL 5' && chart.indicatorName !='INDEX: SDG GOAL 6'
+          && chart.indicatorName !='INDEX: SDG GOAL 7'  && chart.indicatorName !='INDEX: SDG GOAL 8'  && chart.indicatorName !='INDEX: SDG GOAL 9'
+          && chart.indicatorName !='INDEX: SDG GOAL 10'  && chart.indicatorName !='INDEX: SDG GOAL 11'  && chart.indicatorName !='INDEX: SDG GOAL 12'
+          && chart.indicatorName !='INDEX: SDG GOAL 13'  && chart.indicatorName !='INDEX: SDG GOAL 14'  && chart.indicatorName !='INDEX: SDG GOAL 15'
+          && chart.indicatorName !='INDEX: SDG GOAL 16'  && chart.indicatorName !='INDEX: SDG GOAL 17'">Target</span>
+
+          <img class="achieved" src="assets/images/legend-13.png">
+          <span class="title">Achieved</span>
+          <img class="projected" src="assets/images/legend-14.png">
+          <span class="title">Projected</span>
+      </div>
+      <div class="department">
+          <span>Department: {{chart.reportSource}}</span>
+      </div>
+  </div> -->
+  </div>
+</div>
+
+
+
+ 

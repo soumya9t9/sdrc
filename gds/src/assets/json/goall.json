@@ -1,0 +1,121 @@
+[
+    {
+        "id":1,
+        "goal":"goal1",
+        "img": "assets/images/Goal 1.jpg",
+        "name": "Goal-1 : No Poverty",
+        "color": "#E5243B"
+    },
+    {
+        "id":2,
+        "goal":"goal2",
+        "img": "assets/images/Goal 2.jpg",
+        "name": "Goal-2 : Zero Hunger",
+        "color": "#DDA63A"
+    },
+    {
+        "id":3,
+        "goal":"goal3",
+        "img": "assets/images/Goal 3.jpg",
+        "name": "Goal-3 : Health and well-being",
+        "color": "#4C9F38"
+    },
+    {
+        "id":4,
+        "goal":"goal4",
+        "img": "assets/images/Goal 4.jpg",
+        "name": "Goal-4 : Quality Education",
+        "color": "#C5192D"
+    },
+    {
+        "id":5,
+        "goal":"goal5",
+        "img": "assets/images/Goal 5.jpg",
+        "name": "Goal-5 : Gender Equality",
+        "color": "#FF3A21"
+    },
+    {
+        "id":6,
+        "goal":"goal6",
+        "img": "assets/images/Goal 6.jpg",
+        "name": "Goal-6 : Clean Water and Sanitation",
+        "color": "#26BDE2"
+    },
+    {
+        "id":7,
+        "goal":"goal7",
+        "img": "assets/images/Goal 7.jpg",
+        "name": "Goal-7 : Affordable and Clean Energy",
+        "color": "#FCC30B"
+    },
+    {
+        "id":8,
+        "goal":"goal8",
+        "img": "assets/images/Goal 8.jpg",
+        "name": "Goal-8 : Decent Work and Economic Growth",
+        "color": "#A21942"
+    },
+    {
+        "id":9,
+        "goal":"goal9",
+        "img": "assets/images/Goal 9.jpg",
+        "name": "Goal-9 : Industry, Innovation and Infrastructure",
+        "color": "#FD6925"
+    },
+    {
+        "id":10,
+        "goal":"goal10",
+        "img": "assets/images/Goal 10.jpg",
+        "name": "Goal-10 : Reduced Inequalities",
+        "color": "#DD1367"
+    },
+    {
+        "id":11,
+        "goal":"goal11",
+        "img": "assets/images/Goal 11.jpg",
+        "name": "Goal-11 : Sustainable Cities and Communities",
+        "color": "#FD9D24"
+    },
+    {
+        "id":12,
+        "goal":"goal12",
+        "img": "assets/images/Goal 12.jpg",
+        "name": "Goal-12 : Responsible Consumption & Production",
+        "color": "#BF8B2E"
+    },
+    {
+        "id":13,
+        "goal":"goal13",
+        "img": "assets/images/Goal 13.jpg",
+        "name": "Goal-13 : Climate Action",
+        "color": "#3F7E44"
+    },
+    {
+        "id":14,
+        "goal":"goal14",
+        "img": "assets/images/Goal 14.jpg",
+        "name": "Goal-14 : Life Below Water",
+        "color": "#0A97D9"
+    },
+    {
+        "id":15,
+        "goal":"goal15",
+        "img": "assets/images/Goal 15.jpg",
+        "name": "Goal-15 : Life On Land",
+        "color": "#56C02B"
+    },
+    {
+        "id":16,
+        "goal":"goal16",
+        "img": "assets/images/Goal 16.jpg",
+        "name": "Goal 16 : Peace, Justice and Strong Institution",
+        "color": "#00689D"
+    },
+    {
+        "id":17,
+        "goal":"goal17",
+        "img": "assets/images/Goal 17.jpg",
+        "name": "Goal 17 : Partnerships For the Goals",
+        "color": "#19486A"
+    }
+]

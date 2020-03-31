@@ -1,0 +1,130 @@
+<div class="container-fluid background main-font">
+    <div class="col-md-12">
+        <!-- <div class="row">
+            <div class="col-md-4 lang-width-tab-view">
+                <div class="region language-block">
+                    <div id="block-common-utils-mygov-login-block" class="block block-common-utils">
+                        <div class="content setting-option">
+							<li *ngIf="!!app.checkLoggedIn()" style="list-style: none;">
+								<a class="english">Welcome &nbsp;<b class="logged-user">{{app.getUsername()}}</b></a>
+						    </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 top-menu">
+                <div class="region region-header">
+                    <div id="block-common-utils-mygov-login-block" class="block block-common-utils">
+                        <div class="content setting-option">
+                            <ul class="lang-details">
+                                <li>
+                                    <a class="english" (click)="setFontSize(18)" title="Increase font size" href="javascript:void(0);" role="link">A
+                                        <sup>+</sup>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="english" (click)="setFontSize(16)" title="Normal font size" href="javascript:void(0);" role="link">A</a>
+                                </li>
+                                <li>
+                                    <a class="english" (click)="setFontSize(14)" title="Decrease font size" href="javascript:void(0);" role="link">A
+                                        <sup>-</sup>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<!-- end login section -->
+
+<!-- logo section start -->
+<div class="container-fluid logo-background main-font fixed-top" style="overflow: hidden;">
+    <div class="col-md-12 header-tab-view">
+        <div class="row">
+            <div class="col-md-8 left-container" >
+                <div class="col-md-2 head-info">
+                    <a href="https://uk.gov.in/" target="_blank">
+                        <img title="Sustainalbe_development_Goals" class="govt-logo" src="./assets/images/Government of Uttarakhand_Logo.svg" alt="sdg-logo">
+                    </a>
+                </div>
+                <div class="col-md-6 head-info heading-name" >
+					<h1 class="heading-title"> SDG Monitoring Tool </h1>
+						<p class="heading-subtite">Government of Uttarakhand</p>
+                </div>
+            </div>
+            <div class="col-md-3 right-logo">
+                <a href="https://mohfw.gov.in/" class="right-logos" target="_blank">
+                        <img title="Govt of India" class="mwcd-logo" src="./assets/images/Government of India_Logo.svg" alt="Govt of India">
+                </a>
+                <a href="https://sustainabledevelopment.un.org/" class="right-logos" target="_blank">
+                        <img title="Sustainable Development Goal" class="bbbp-logo" src="./assets/images/Sustainalbe_development_Goals_Logo.svg" alt="SDG Logo">
+                </a>
+                <a href="https://www.in.undp.org/" class="right-logos" target="_blank">
+					<img title="United Nations Development Programme" class="undp-logo" src="./assets/images/UNDP_Logo.svg" alt="UNDP Logo">
+                </a>
+            </div>
+            <div class="col-md-1 burger-section">
+                    <div class="burger-button" (click)="m.toggle($event)">
+                        <!-- <i class="material-icons menu-icon">  menu </i> -->
+                        <img class="burger-icon" src="./assets/images/icon/Burger.png">
+                    </div>
+                    <app-sidebar-component #m></app-sidebar-component>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div class="section-divider">
+</div>
+<!-- end logo section -->
+
+<!-- menu section start -->
+<!-- <header id="header" class="main-font">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown" [ngClass]="{'active': router.url=='/home' || router.url=='/'}" >
+                            <a class="nav-link" routerLink="" >Home</a>
+                        </li>
+                        <li  class="nav-item dropdown" [ngClass]="{'active': router.url=='/about-sdg'}">
+                            <a class="nav-link"  routerLink="about-sdg">About SDG</a>
+						</li>
+
+						<li  class="nav-item dropdown" [ngClass]="{'active': router.url=='/resources'}">
+                            <a class="nav-link"  routerLink="resources">Resources</a>
+						</li>
+						<li  class="nav-item dropdown" [ngClass]="{'active': router.url=='/contact-us'}">
+                            <a class="nav-link"  routerLink="contact-us">Contact Us</a>
+                        </li>
+                        <li class="nav-item dropdown" *ngIf="app.checkUserAuthorization(['DATA_ENTRY'])" [ngClass]="{'active': router.url=='/data-entry/data-entry-view'}">
+                            <a class="nav-link" mdbRippleRadius routerLink="/data-entry/data-entry-view">Data Entry</a>
+                        </li>
+                        <li class="nav-item dropdown" *ngIf="app.checkLoggedIn()" [ngClass]="{'active': router.url=='/dashboard/dashboard-view'}">
+                            <a class="nav-link" mdbRippleRadius routerLink="/dashboard/dashboard-view">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown" *ngIf="app.checkLoggedIn()" [ngClass]="{'active': router.url=='/mdm/target-value-entry'}">
+                            <a class="nav-link" mdbRippleRadius routerLink="/mdm/target-value-entry">MDM</a>
+                        </li>
+						<li  class="nav-item dropdown" [ngClass]="{'active': router.url=='/login'}" *ngIf="!app.checkLoggedIn()">
+                            <a class="nav-link"  routerLink="login" >Login</a>
+                        </li>
+                        <li class="nav-item" *ngIf="app.checkLoggedIn()" (click)="logout()">
+                            <a class="nav-link admin-group" style="cursor: pointer"><span class=" d-sm-inline-block">Logout</span></a>
+                          </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header> -->
+<!-- /.navbar -->

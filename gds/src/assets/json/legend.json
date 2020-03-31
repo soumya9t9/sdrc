@@ -1,0 +1,20 @@
+{  
+    "legends":[
+        {
+            "value":"firstslices",         
+            "keyValue":"80%-100%"          
+        },
+        {
+            "value":"secondslices",          
+            "keyValue":"60%-79%"           
+        },          
+        {
+            "value":"thirdslices",           
+            "keyValue":"40% - 59%"           
+        },
+        {
+            "value":"fourthslices",
+            "keyValue":"0%-39%"
+        }   
+    ]    
+ }

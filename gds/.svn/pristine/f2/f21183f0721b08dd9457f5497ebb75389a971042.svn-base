@@ -1,0 +1,27 @@
+
+.axis--x path{
+    stroke: #fff;
+} 
+.axis--y path{
+    stroke: #fff;
+}
+
+path.domain, .tick line {
+    stroke: #999;
+}
+
+.tick text {
+    fill: #fff !important;
+}
+
+.line {
+    fill: none !important;
+    stroke-width: 1.5px;
+    stroke: #fff !important;
+  }
+  .dot
+  {
+    stroke:#fff !important;
+    fill: #fff !important;
+    stroke-width: 1px;
+  }

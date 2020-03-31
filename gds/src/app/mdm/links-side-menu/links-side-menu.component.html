@@ -1,0 +1,27 @@
+<div class="page-details">
+  <h3>Content Management System</h3>
+</div>
+
+<div class="hidden-sm-down">
+  <ul class="data-heads">  
+    <li  class="data-head-list" [ngClass]="{'active': router.url == '/success-stories'}">
+      <span class="list-span"><a routerLink="/success-stories">Success Stories</a></span>      
+  </li>    
+  <li  class="data-head-list" [ngClass]="{'active': router.url=='/admin-stories'}">
+    <span class="list-span"><a routerLink="/admin-stories">Success Stories</a></span>      
+  </li>  
+  <li  class="data-head-list" [ngClass]="{'active': router.url=='/resources'}">
+    <span class="list-span"><a routerLink="/resources">Resources</a></span>      
+  </li> 
+  <li  class="data-head-list" [ngClass]="{'active': router.url=='/gallery-upload'}">
+    <span class="list-span"><a routerLink="/gallery-upload">Gallery</a></span>      
+  </li> 
+  <li  class="data-head-list" [ngClass]="{'active': router.url=='/important-links-upload'}">
+    <span class="list-span"><a routerLink="/important-links-upload">Useful Links</a></span>      
+  </li>
+  <li  class="data-head-list" [ngClass]="{'active': router.url=='/whatsnew-upload'}">
+    <span class="list-span"><a routerLink="/whatsnew-upload">What's New</a></span>      
+  </li>
+  </ul>
+</div>
+<br>

@@ -1,0 +1,146 @@
+[
+    {
+        "desc": -1,
+        "key": 257,
+        "value": "INDEX",
+        "national_sdmx_code": "GOAL_0",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 7,
+        "value": "Goal 1:End poverty in all its forms everywhere",
+        "national_sdmx_code": "GOAL_1",
+        "trend": "dropped",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 1,
+        "value": "Goal 2:End hunger, achieve food security and improved nutrition and promote sustainable agriculture",
+        "national_sdmx_code": "GOAL_2",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 54,
+        "value": "Goal 3:Ensure healthy lives and promote well-being for all at all ages",
+        "national_sdmx_code": "GOAL_3",
+        "trend": "noChange",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 22,
+        "value": "Goal 4:Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all",
+        "national_sdmx_code": "GOAL_4",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 10,
+        "value": "Goal 5:Achieve gender equality and empower all women and girls",
+        "national_sdmx_code": "GOAL_5",
+        "trend": "dropped",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 26,
+        "value": "Goal 6:Ensure availability and sustainable management of water and sanitation for all ",
+        "national_sdmx_code": "GOAL_6",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 40,
+        "value": "Goal 7:Ensure access to affordable, reliable, sustainable and modern energy for all",
+        "national_sdmx_code": "GOAL_7",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 12,
+        "value": "Goal 8:Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all",
+        "national_sdmx_code": "GOAL_8",
+        "trend": "noChange",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 14,
+        "value": "Goal 9:Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation",
+        "national_sdmx_code": "GOAL_9",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 92,
+        "value": "Goal 10:Reduce inequality within and among countries",
+        "national_sdmx_code": "GOAL_10",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 17,
+        "value": "Goal 11:Make cities and human settlements inclusive, safe, resilient and sustainable ",
+        "national_sdmx_code": "GOAL_11",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 37,
+        "value": "Goal 12:Ensure sustainable consumption and production patterns",
+        "national_sdmx_code": "GOAL_12",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 19,
+        "value": "Goal 13:Take urgent action to combat climate change and its impacts",
+        "national_sdmx_code": "GOAL_13",
+        "trend": "dropped",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 120,
+        "value": "Goal 14:Conserve and sustainably use the oceans, seas and marine resources for sustainable development",
+        "national_sdmx_code": "GOAL_14",
+        "trend": "improved",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 44,
+        "value": "Goal 15:Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss ",
+        "national_sdmx_code": "GOAL_15",
+        "trend": "noChange",
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 60,
+        "value": "Goal 16:Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels ",
+        "national_sdmx_code": "GOAL_16",
+        "trend": null,
+        "sources": null
+    },
+    {
+        "desc": -1,
+        "key": 30,
+        "value": "Goal 17:Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development",
+        "national_sdmx_code": "GOAL_17",
+        "trend": "improved",
+        "sources": null
+    }
+]

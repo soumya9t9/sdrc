@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 p-0">
+
+      <form class="table-wrapper table-bordered" [formGroup]="indicatorsFG"
+        *ngIf="indicatorsFG && indicatorsFormConfig">
+
+        <div class="sticky-indicator font-weight-bold" *ngIf="indicatorsFormConfig[0].formInputs[0]">
+          <span
+            *ngIf="indicatorsFormConfig[0].formInputs[0].formInputs">{{indicatorsFormConfig[0].formInputs[0].formInputs[1].value}}</span>
+          <span
+            *ngIf="indicatorsFormConfig[0].formInputs[0].formInputs">&nbsp;({{indicatorsFormConfig[0].formInputs[0].formInputs[2].value}})</span>
+          <div class="dropdown-wrapper" *ngIf="areaDropdown.list">
+            <label class="select-lable" for="usr">Select Area :</label>
+            <mat-form-field>
+              <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="areaDropdown.selectedValue" required 
+                multiple [disabled]="areaDropdown.list.length < 2">
+                <mat-option (click)=areaChanged(opt.areaId) *ngFor="let opt of areaDropdown.list" [value]="opt.areaId || opt" [id]="opt">
+                  {{opt.areaName}}
+                </mat-option>
+              </mat-select>
+              <mat-error class="padding-bottom">
+                Please select area
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-holder"
+          *ngFor="let eachIndicator of indicatorsFormConfig[0].formInputs;let indicatorIndex = index">
+          <table [formArrayName]="eachIndicator.columnName" class="table">
+            <tr *ngIf="eachIndicator">
+              <table [formArrayName]="eachIndicator.formInputs[0].columnName">
+                <tr>
+                  <th class="sticky-header"
+                    *ngIf="eachIndicator?.formInputs[0]?.formInputs[0]?.formInputs[0]?.formInputs">District</th>
+                  <th class="sticky-header"
+                    *ngFor="let eachYear of eachIndicator?.formInputs[0]?.formInputs[0]?.formInputs[0]?.formInputs || []">
+                    {{eachYear.formInputs[0].value}}
+                  </th>
+
+                </tr>
+                <tr
+                  *ngFor="let eachAreaWise of eachIndicator.formInputs[0].formInputs | areaFilter:areaDropdown.selectedValue ;let areaIndex=index"
+                  [formGroupName]="eachAreaWise.columnName">
+                  <td class="align-middle">
+                    {{eachAreaWise.formInputs[2].value}}
+                  </td>
+                  <td scope="row" *ngFor="let eachYear of eachAreaWise.formInputs[0].formInputs;let yearIndex=index"
+                    [formArrayName]="eachAreaWise.formInputs[0].columnName">
+                    <div [formGroupName]="eachYear.columnName">
+                      <mat-form-field class="login-field max-width-indicator">
+                        <input matInput [name]='' class="max-width-indicator" [onlyNumber]="number" type="number"
+                          [formControlName]="eachYear.formInputs[1].columnName" [min]="'0'"
+                          (blur)="projectValue(indicatorIndex, eachAreaWise.index, yearIndex, eachYear)">
+                      </mat-form-field>
+                    </div>
+                  </td>
+                </tr>
+
+              </table>
+
+            </tr>
+          </table>
+        </div>
+      </form>
+
+    </div>
+    <!-- <div class="btn-wrapper text-center" *ngIf="allIndicators && indicatorsFG">
+      <button class="btn btn-primary" (click)="submit()">Submit</button>
+    </div> -->
+  </div>
+</div>

@@ -1,0 +1,107 @@
+.map_popover {
+    background: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #4bbcd7;
+    color: #727272;
+    display: none;
+    font: italic 14px Georgia;
+    left: 0;
+    opacity: 0.6;
+    padding: 10px 20px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    z-index: 1000;
+}
+path.activeclick{
+    // stroke: #f7c00c !important;
+    // stroke-width: 1px !important;
+    z-index: 300;
+    opacity: 1 !important;
+    stroke-opacity: 1;
+    stroke-width: 4px !important;
+    stroke: #0c0900 !important;
+  }
+.trend-chart {
+    background: #232222e0;
+    height: 300px;
+    margin-right: 13%;
+    margin-top: 70px;
+    position: absolute;
+    right: 0;
+    padding: 5px;
+}
+.ind-group{
+    font-size: 12px;
+}
+// .district-line-chart{
+//     height: 300px;
+//     background: #cbccce;
+//     position: relative;
+//     margin-top: 0px;
+//     opacity: 0.9;
+//     z-index: 1000;
+// }
+.trend-close{
+    position: absolute; 
+    top: -1px; 
+    right:1px; 
+    z-index: 1;
+    color: #fff;
+    opacity: 1;
+}
+.text-center {
+    background-color: #13212c;
+}
+.line-chart-section {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    left: 0;
+    background-color: #080808c9;
+    z-index: 100;
+}
+.district-line-chart {
+    height: 300px;
+    background: #fff;
+    position: relative;
+    margin-top: 140px;
+    opacity: 0.9;
+    z-index: 1000;
+    width: 65%;
+    margin-left: 20%;
+}
+.legend-section{
+    margin-left: 25px;
+    font-size: 12px;
+}
+.department{
+    margin-left: 20px;
+}
+.current-value{
+    font-size: 12px;
+    margin-left: 10px;
+}
+@media (max-width:768px){
+    .district-line-chart{
+        height: 370px;
+        width: 100%;
+        margin-left: 0;
+    }
+    .current-value{
+        font-size: 12px;
+        margin-left: 10px;
+    }
+}
+@media(max-width:360px){
+    .district-line-chart{
+        width: 100%;
+        margin-left: 0;
+        height: 360px;
+        margin-top: 110px;
+    }
+    .current-value{
+        font-size: 12px;
+        margin-left: 10px;
+    }
+}

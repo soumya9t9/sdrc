@@ -1,0 +1,1026 @@
+[
+    {
+        "district": "Uttarakhand",
+        "rank": "",
+        "score": 85.2,
+        "Sdgs": [
+            {
+                "goalId": 7, "goalCode": "GOAL_1",
+                "score": 80
+            },
+            {
+                "goalId": 1, "goalCode": "GOAL_2",
+                "score": 70
+            },
+            {
+                "goalId": 54, "goalCode": "GOAL_3",
+                "score": 80
+            },
+            {
+                "goalId": 22, "goalCode": "GOAL_4",
+                "score": 75
+            },
+            {
+                "goalId": 10, "goalCode": "GOAL_5",
+                "score": 85
+            },
+            {
+                "goalId": 26, "goalCode": "GOAL_6",
+                "score": 67
+            },
+            {
+                "goalId": 40, "goalCode": "GOAL_7",
+                "score": 80
+            },
+            {
+                "goalId": 12, "goalCode": "GOAL_8",
+                "score": 76
+            },
+            {
+                "goalId": 14, "goalCode": "GOAL_9",
+                "score": 72
+            },
+            {
+                "goalId": 92, "goalCode": "GOAL_10",
+                "score": 89
+            },
+            {
+                "goalId": 17, "goalCode": "GOAL_11",
+                "score": 75
+            },
+            {
+                "goalId": 37, "goalCode": "GOAL_12",
+                "score": 80
+            },
+            {
+                "goalId": 19, "goalCode": "GOAL_13",
+                "score": 80
+            },
+            {
+                "goalId": 120, "goalCode": "GOAL_14",
+                "score": 80
+            },
+            {
+                "goalId": 44, "goalCode": "GOAL_15",
+                "score": 80
+            },
+            {
+                "goalId": 60, "goalCode": "GOAL_16",
+                "score": 80
+            },
+            {
+                "goalId": 30, "goalCode": "GOAL_17",
+                "score": 80
+            }
+        ]
+    },
+    {
+        "district": "Almora",
+        "rank": 1,
+        "score": 100.0,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 100
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 100
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Bagheswar",
+        "rank": 2,
+        "score": 82.8,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 100
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 100
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 100
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 100
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 100
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 100
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 100
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 100
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 100
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 100
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 100
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 100
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 100
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 100
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 100
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 100
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 100
+        }]
+    },
+    {
+        "district": "chamoli",
+        "rank": 3,
+        "score": 81.5,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Champawat",
+        "rank": 4,
+        "score": 81.1,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Dehradun",
+        "rank": 2,
+        "score": 81.1,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Garhwal",
+        "rank": 2,
+        "score": 80.7,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Hardwar",
+        "rank": 2,
+        "score": 80.7,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Nainital",
+        "rank": 2,
+        "score": 80.4,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Pithoragarh",
+        "rank": 2,
+        "score": 80.2,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Rudraprayag",
+        "rank": 2,
+        "score": 79.5,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Terhi Garhwal",
+        "rank": 2,
+        "score": 79.4,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Udham Singh Nagar",
+        "rank": 2,
+        "score": 64.4,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 30
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    },
+    {
+        "district": "Uttarkashi",
+        "rank": 2,
+        "score": 49.2,
+        "Sdgs": [{
+            "goalId": 7, "goalCode": "GOAL_1",
+            "score": 80
+        },
+        {
+            "goalId": 1, "goalCode": "GOAL_2",
+            "score": 70
+        },
+        {
+            "goalId": 54, "goalCode": "GOAL_3",
+            "score": 80
+        },
+        {
+            "goalId": 22, "goalCode": "GOAL_4",
+            "score": 75
+        },
+        {
+            "goalId": 10, "goalCode": "GOAL_5",
+            "score": 85
+        },
+        {
+            "goalId": 26, "goalCode": "GOAL_6",
+            "score": 67
+        },
+        {
+            "goalId": 40, "goalCode": "GOAL_7",
+            "score": 80
+        },
+        {
+            "goalId": 12, "goalCode": "GOAL_8",
+            "score": 76
+        },
+        {
+            "goalId": 14, "goalCode": "GOAL_9",
+            "score": 72
+        },
+        {
+            "goalId": 92, "goalCode": "GOAL_10",
+            "score": 89
+        },
+        {
+            "goalId": 17, "goalCode": "GOAL_11",
+            "score": 75
+        },
+        {
+            "goalId": 37, "goalCode": "GOAL_12",
+            "score": 80
+        },
+        {
+            "goalId": 19, "goalCode": "GOAL_13",
+            "score": 80
+        },
+        {
+            "goalId": 120, "goalCode": "GOAL_14",
+            "score": 80
+        },
+        {
+            "goalId": 44, "goalCode": "GOAL_15",
+            "score": 80
+        },
+        {
+            "goalId": 60, "goalCode": "GOAL_16",
+            "score": 80
+        },
+        {
+            "goalId": 30, "goalCode": "GOAL_17",
+            "score": 80
+        }]
+    }
+]

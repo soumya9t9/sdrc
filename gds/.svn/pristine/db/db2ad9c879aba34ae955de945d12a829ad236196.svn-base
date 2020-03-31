@@ -1,0 +1,92 @@
+{
+    "GOAL_0": {
+        "target": 169,
+        "indicator": 503,
+        "department": 38
+    },
+    "GOAL_1": {
+        "target": 149,
+        "indicator": 403,
+        "department": 28
+    },
+    "GOAL_2": {
+        "target": 159,
+        "indicator": 303,
+        "department": 32
+    },
+    "GOAL_3": {
+        "target": 139,
+        "indicator": 383,
+        "department": 28
+    },
+    "GOAL_4": {
+        "target": 138,
+        "indicator": 203,
+        "department": 18
+    },
+    "GOAL_5": {
+        "target": 143,
+        "indicator": 353,
+        "department": 25
+    },
+    "GOAL_6": {
+        "target": 169,
+        "indicator": 503,
+        "department": 38
+    },
+    "GOAL_7": {
+        "target": 169,
+        "indicator": 503,
+        "department": 38
+    },
+    "GOAL_8": {
+        "target": 169,
+        "indicator": 503,
+        "department": 38
+    },
+    "GOAL_9": {
+        "target": 169,
+        "indicator": 503,
+        "department": 38
+    },
+    "GOAL_10": {
+        "target": 149,
+        "indicator": 403,
+        "department": 28
+    },
+    "GOAL_11": {
+        "target": 159,
+        "indicator": 303,
+        "department": 32
+    },
+    "GOAL_12": {
+        "target": 159,
+        "indicator": 303,
+        "department": 32
+    },
+    "GOAL_13": {
+        "target": 139,
+        "indicator": 383,
+        "department": 28
+    },
+    "GOAL_14": {
+        "target": 138,
+        "indicator": 203,
+        "department": 18
+    },
+    "GOAL_15": {
+        "target": 143,
+        "indicator": 353,
+        "department": 25
+    },
+    "GOAL_16": {
+        "target": 169,
+        "indicator": 503,
+        "department": 38
+    },
+    "GOAL_17": {
+        "target": 169,
+        "indicator": 503,
+        "department": 38
+    }
+}

@@ -1,0 +1,16 @@
+.topojson-link {
+    text-decoration: underline;
+    color: green;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.topojson-wrapper {
+    padding-top: 10px;
+}
+.file-uploader-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.file-background {
+    width:fit-content;
+}

@@ -1,0 +1,157 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SubmissionRejectionService } from '../submission-rejection.service';
+import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { Data } from '@src/app/models/data';
+import { MatDialog } from '@angular/material';
+import { ConformationDialogComponent } from '../dialog/conformation-dialog/conformation-dialog.component';
+import { ModalMessageComponent } from '../modal-message/modal-message.component';
+declare var $: any;
+
+@Component({
+  selector: 'app-rejection-indicator-view',
+  templateUrl: './rejection-indicator-view.component.html',
+  styleUrls: ['./rejection-indicator-view.component.scss']
+})
+export class RejectionIndicatorViewComponent implements OnInit {
+
+  selectedDepartment: any;
+  selectedGoal: any;
+  selectedIndicator: any;
+  submissionRejectionService:SubmissionRejectionService;
+  allDistrictData: any;
+  allDepartments:any;
+  goalList:any;
+  allgoalList:any;
+  indicatorList:any;
+  rawForm: FormGroup;
+  departmentId:number;
+  indicatorId:number;
+  rejectionTableData:any;
+  indTableColumns: string[];
+  rejectionTableDataAll:string[];
+  selectedChecked:string;
+  Message:string;
+  rejectedIndicatorData:any;
+  excludedColumns: string[] = ['Indicator Id', 'Indicator', 'TimeperiodId', 'SourceId', 'Id', 'isChecked', 'Message']
+
+
+  @ViewChild('rawFormData') rawFormData: NgForm;
+
+  constructor(private submissionRejectionProvider: SubmissionRejectionService, private fb: FormBuilder, private dialog: MatDialog) {
+    this.submissionRejectionService = this.submissionRejectionProvider;
+   }
+
+  ngOnInit() {
+    this.rawForm = this.fb.group({
+      department: new FormControl('', [Validators.required]),
+      goal: new FormControl('', [Validators.required]),
+      indicator: new FormControl('', [Validators.required]),
+
+    });
+    this.submissionRejectionService.getDepartment().subscribe(data =>{
+      this.allDepartments = data;
+    })
+
+  }
+  selectDepartment(){
+    this.selectedGoal = undefined;
+    this.selectedIndicator = undefined;
+    this.goalList = this.allDepartments.filter(goalIndex => goalIndex.name == this.selectedDepartment.name)[0].goal;
+    this.allgoalList = Object.keys(this.goalList);
+    this.departmentId= this.selectedDepartment.id;
+  }
+  selectGoal(selectedGoal){
+    this.selectedIndicator = undefined;
+    this.indicatorList = this.goalList[selectedGoal];
+    this.indicatorId = this.indicatorList[0].key;
+  }
+  getAllDistrictValue() {
+    this.submissionRejectionService.getDistrictValuesIndicatorwise().subscribe(res => {
+      this.allDistrictData = res;
+    })
+  }
+  saveIndicatorData(){
+
+  }
+
+  removeExtraKeys(allKeys:string[], objextraKeys: string[]):string[] {
+    objextraKeys.forEach(el => {
+      if(allKeys.indexOf(el) != -1)
+      allKeys.splice(allKeys.indexOf(el), 1)
+    });
+    return allKeys
+  }
+  showRejectionList(departmentId,indicatorId){
+    this.submissionRejectionService.getRejectionTableList(this.selectedDepartment.id,indicatorId).subscribe(res=>{
+      (res as Array<any>).forEach(element => {
+        element.isChecked = false;
+      });
+ 
+      this.rejectionTableData = res;
+      if(this.rejectionTableData)
+      this.indTableColumns = this.removeExtraKeys(Object.keys(this.rejectionTableData[0]), this.excludedColumns);
+    });
+  }
+
+  CheckBoxClicked(data){
+    this.selectedChecked = data.Id;
+  }
+
+  submitData(){
+
+    for (let i = 0; i < this.rejectionTableData.length; i++) {
+      const element = this.rejectionTableData[i];
+
+      if(element.isChecked && !element.Message){
+        const dialogRef = this.dialog.open(ModalMessageComponent,
+          { width: '400px', disableClose: true, data: { msg: 'Please provide remark for all indicators to be rejected', header: 'Error', button: 'Ok' } });
+        return false
+      }
+    }
+
+    let rejectedRows = []
+    this.rejectionTableData.forEach(element => {
+        if(element.isChecked){
+          let model = {
+            "id": element.Id,
+            "msg": element.Message
+          }
+          rejectedRows.push(model)
+        }
+    });
+      this.submissionRejectionService.rejectIndicators(rejectedRows).subscribe(res=>{
+        this.rejectedIndicatorData = res;
+        // this.resetAllChecked();
+        this.showRejectionList(this.selectedDepartment, this.selectedIndicator)
+        const dialogRef = this.dialog.open(ConformationDialogComponent,
+          { width: '400px', disableClose: true, data: { msg: 'Rejected Successfully', button: 'Ok' } });
+      }, err =>{
+        const dialogRef = this.dialog.open(ConformationDialogComponent,
+          { width: '400px', disableClose: true, data: { msg: 'Rejected failed', button: 'Ok' } });
+      })
+    
+  }
+  resetcheck(){
+    this.rejectedIndicatorData.message=null;
+  }
+
+  getCheckedElements() {
+    let allCheckedElements = [];
+    this.rejectionTableData.forEach(element => {
+      if(element.isChecked){
+        allCheckedElements.push(element)
+      }
+  });
+    return allCheckedElements;
+  }
+
+  resetAllChecked() {
+    this.rejectionTableData.forEach(element => {
+      if(element.isChecked){
+        element.isChecked = false;
+      }
+      element.Message = "";
+  });
+  }
+
+}

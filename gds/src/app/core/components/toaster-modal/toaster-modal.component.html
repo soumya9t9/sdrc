@@ -1,0 +1,49 @@
+<div id=toast-wrapper aria-live="polite" aria-atomic="true"
+  class="toast-wrapper zi-negative d-flex justify-content-center align-items-center" style="min-height: 100px;">
+
+  <!-- Then put toasts within -->
+  <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true"
+    style="max-width: 1024px; width:100%;">
+    <div class="d-flex align-items-center justify-content-between alert alert-{{toastData.class}}"
+      style="margin: 0 auto;">
+      <div class="text-break h6">{{toastData.message}}</div>
+      <button type="button" (click)="colseToast()" class="ml-2 close justify-content-end " data-dismiss="toast"
+        aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!-- <div class="toast-body">
+      {{toastData.message}}
+    </div> -->
+  </div>
+</div>
+
+<!-- MODAL START -->
+<div id="modal-popup-11" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
+  <div class="modal-dialog modal-confirm parent ">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+          <h2  class="conformation mat-dialog-title" mat-dialog-title="" id="mat-dialog-title-0">{{modalData.heading || '!Info'}}</h2>
+        <p>{{modalData.message}}</p>
+        <button class="btn button" (click)="eachButton.callback(eachButton.args)"
+          style="margin-right: 5px;" *ngFor="let eachButton of modalData.buttons">
+          <span>{{eachButton.label}}</span>
+        </button>
+        <!-- <button class="btn" data-dismiss="modal"><span>CANCEL</span></button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h2 mat-dialog-title class="conformation">{{modalData.heading}}</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="message-box">
+      {{modalData.message}}
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button [mat-dialog-close]=false class="cancel">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="ok">{{ data.button }}</button>
+</mat-dialog-actions> -->
+<!-- MODAL END -->

@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row login-page-container">
+		<div class="col-md-8 login-logo-container">
+			<img src="assets/images/Loginpage_Goals-98.svg" class="sdg-login-logo" width="100%">
+		</div>
+		<div class="login-form-container col-md-4">
+			<div class="login-form">
+				<h4 class="col-md-12 login-header" style="text-align:center;"><strong>Login</strong>
+				</h4>
+				<div class="container-body">
+					<form [formGroup]="credentials" (submit)="login($event)" [noValidate]="false">
+						<div class="row">
+							<div class="col login-pwd">
+								<label for="usr">Username:</label>
+								<mat-form-field class="login-field">
+									<input matInput name='username' formControlName="username" required>
+								</mat-form-field>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col login-pwd">
+								<label for="pwd">Password:</label>
+								<mat-form-field class="login-field">
+									<input matInput type="password" name="password" formControlName="password"
+										required>
+								</mat-form-field>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col">
+								<button mat-button class="btn btn-default login-submit" type="submit">Submit</button>
+							</div>
+						</div>
+					</form>
+					<div class='row'>
+						<div class='col d-flex justify-content-between'>
+							<h5 class="forg">
+								<a  class="forgotPass" routerLink="forgotpass" >Forgot password ?</a>
+							</h5>
+
+						</div>
+	  				</div>
+					<div class="row error-message" *ngIf="app.validationMsg">
+						<div class="col">
+						<b>{{app.validationMsg}}</b>
+						</div>
+
+					</div>
+				</div>
+				<div class="login-form-border"><img src="assets/images/Stripe_3.svg"></div>
+			</div>
+		</div>
+	</div>
+</div>

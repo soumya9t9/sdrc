@@ -1,0 +1,1332 @@
+[
+    {
+        "groupedIndName": "Percentage of Pregnant women registered within 1st trimester (within 12 weeks)",
+        "indicatorName": "Percentage of Pregnant women registered within 1st trimester (within 12 weeks)",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "58.0",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "47875",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "60.8",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "50198",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "63.1",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "52058",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "65.8",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "54276",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "65.7",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "54224",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "63.2",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "52121",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "60.8",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "50196",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.3",
+                    "key": "Number Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "indicatorName": "Pregnant women registered within 1st trimester (within 12 weeks)",
+                    "cssColor": null,
+                    "numerator": "282",
+                    "denominator": "82527",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Pregnant women received 4 or more ANC check ups",
+        "indicatorName": "Percentage of Pregnant women received 4 or more ANC check ups",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "73.3",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "60467",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "74.1",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "61140",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "73.8",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "60930",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "78.7",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "64959",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "81.8",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "67540",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "78.2",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "64532",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "75.2",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "62028",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.3",
+                    "key": "Number Pregnant women received 4 or more ANC check ups",
+                    "indicatorName": "Pregnant women received 4 or more ANC check ups",
+                    "cssColor": null,
+                    "numerator": "229",
+                    "denominator": "82527",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+        "indicatorName": "Percentage of Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "81.2",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "67026",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "79.0",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "65237",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "74.3",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "61328",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "81.1",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "66897",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "81.2",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "66977",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "74.1",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "61186",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "79.0",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "65209",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.5",
+                    "key": "Number Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "indicatorName": "Pregnant women given 180 Iron Folic Acid (IFA) tablets",
+                    "cssColor": null,
+                    "numerator": "380",
+                    "denominator": "82527",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Pregnant women given 360 Calcium tablets",
+        "indicatorName": "Percentage of Pregnant women given 360 Calcium tablets",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "50.5",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "41656",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "51.0",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "42073",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "51.4",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "42395",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "56.2",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "46340",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "56.6",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "46675",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "54.4",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "44866",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "57.2",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "47202",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.4",
+                    "key": "Number Pregnant women given 360 Calcium tablets",
+                    "indicatorName": "Pregnant women given 360 Calcium tablets",
+                    "cssColor": null,
+                    "numerator": "371",
+                    "denominator": "82527",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Pregnant women given one Albendazole tablet after 1st trimester",
+        "indicatorName": "Percentage of Pregnant women given one Albendazole tablet after 1st trimester",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "26.3",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "21729",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "25.3",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "20900",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "27.3",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "22565",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "28.9",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "23811",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "31.0",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "25606",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "32.1",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "26516",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "30.3",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "25000",
+                    "denominator": "82527",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.2",
+                    "key": "Number Pregnant women given one Albendazole tablet after 1st trimester",
+                    "indicatorName": "Pregnant women given one Albendazole tablet after 1st trimester",
+                    "cssColor": null,
+                    "numerator": "173",
+                    "denominator": "82527",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Pregnant women having severe anaemia (Hb<7) treated",
+        "indicatorName": "Percentage of Pregnant women having severe anaemia (Hb<7) treated",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "58.9",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "712",
+                    "denominator": "1209",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "65.2",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "769",
+                    "denominator": "1179",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "61.8",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "829",
+                    "denominator": "1341",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "55.9",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "881",
+                    "denominator": "1575",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "63.2",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "1129",
+                    "denominator": "1785",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "61.7",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "952",
+                    "denominator": "1543",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "70.3",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "992",
+                    "denominator": "1411",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.0",
+                    "key": "Number Pregnant women having severe anaemia (Hb<7) treated",
+                    "indicatorName": "Pregnant women having severe anaemia (Hb<7) treated",
+                    "cssColor": null,
+                    "numerator": "0",
+                    "denominator": "4",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Institutional Deliveries conducted (Including C-Sections)",
+        "indicatorName": "Percentage of Institutional Deliveries conducted (Including C-Sections)",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "74.1",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "55039",
+                    "denominator": "74275",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "76.4",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "56718",
+                    "denominator": "74275",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "72.3",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "53699",
+                    "denominator": "74275",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "79.2",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "58815",
+                    "denominator": "74275",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "84.5",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "62753",
+                    "denominator": "74275",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "81.1",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "60226",
+                    "denominator": "74275",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "78.7",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "58418",
+                    "denominator": "74275",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.4",
+                    "key": "Number Institutional Deliveries conducted (Including C-Sections)",
+                    "indicatorName": "Institutional Deliveries conducted (Including C-Sections)",
+                    "cssColor": null,
+                    "numerator": "295",
+                    "denominator": "74275",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of C- Section conducted",
+        "indicatorName": "Percentage of C- Section conducted",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "8.1",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "4437",
+                    "denominator": "55039",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "8.5",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "4813",
+                    "denominator": "56718",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "8.2",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "4403",
+                    "denominator": "53699",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "8.7",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "5110",
+                    "denominator": "58815",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "7.7",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "4818",
+                    "denominator": "62753",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "7.7",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "4643",
+                    "denominator": "60226",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "7.1",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "4171",
+                    "denominator": "58418",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.0",
+                    "key": "Number C- Section conducted",
+                    "indicatorName": "C- Section conducted",
+                    "cssColor": null,
+                    "numerator": "0",
+                    "denominator": "295",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Mothers provided full course of 180 IFA tablets after delivery",
+        "indicatorName": "Percentage of Mothers provided full course of 180 IFA tablets after delivery",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "50.6",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "29234",
+                    "denominator": "57801",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "51.8",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "30700",
+                    "denominator": "59263",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "54.6",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "30622",
+                    "denominator": "56127",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "58.9",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "36095",
+                    "denominator": "61312",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "58.6",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "38282",
+                    "denominator": "65367",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "57.1",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "35922",
+                    "denominator": "62871",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "72.5",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "44331",
+                    "denominator": "61117",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "89.4",
+                    "key": "Number Mothers provided full course of 180 IFA tablets after delivery",
+                    "indicatorName": "Mothers provided full course of 180 IFA tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "278",
+                    "denominator": "311",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Mothers provided 360 Calcium tablets after delivery",
+        "indicatorName": "Percentage of Mothers provided 360 Calcium tablets after delivery",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "41.5",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "23997",
+                    "denominator": "57801",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "41.5",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "24573",
+                    "denominator": "59263",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "44.1",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "24746",
+                    "denominator": "56127",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "45.1",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "27665",
+                    "denominator": "61312",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "46.9",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "30650",
+                    "denominator": "65367",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "48.6",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "30575",
+                    "denominator": "62871",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "91.1",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "55699",
+                    "denominator": "61117",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "87.1",
+                    "key": "Number Mothers provided 360 Calcium tablets after delivery",
+                    "indicatorName": "Mothers provided 360 Calcium tablets after delivery",
+                    "cssColor": null,
+                    "numerator": "271",
+                    "denominator": "311",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+        "indicatorName": "Percentage of Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "16.9",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "7644500",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "10.5",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "4739300",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "11.9",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "5366750",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "12.2",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "5534100",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "6.4",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "2877500",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "7.3",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "3318200",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "2.5",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "1137700",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Nov- 2019",
+                    "value": "0.0",
+                    "key": "Number Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "indicatorName": "Stocks available for Iron and Folic Acid (IFA) tablets - Red (Adult)",
+                    "cssColor": null,
+                    "numerator": "0",
+                    "denominator": "45180258",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Stocks available for Calcium ",
+        "indicatorName": "Percentage of Stocks available for Calcium ",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "2.0",
+                    "key": "Number Stocks available for Calcium ",
+                    "indicatorName": "Stocks available for Calcium ",
+                    "cssColor": null,
+                    "numerator": "1047000",
+                    "denominator": "51571500",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "2.0",
+                    "key": "Number Stocks available for Calcium ",
+                    "indicatorName": "Stocks available for Calcium ",
+                    "cssColor": null,
+                    "numerator": "1012000",
+                    "denominator": "51571500",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "8.7",
+                    "key": "Number Stocks available for Calcium ",
+                    "indicatorName": "Stocks available for Calcium ",
+                    "cssColor": null,
+                    "numerator": "4503700",
+                    "denominator": "51571500",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "10.3",
+                    "key": "Number Stocks available for Calcium ",
+                    "indicatorName": "Stocks available for Calcium ",
+                    "cssColor": null,
+                    "numerator": "5323700",
+                    "denominator": "51571500",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "2.5",
+                    "key": "Number Stocks available for Calcium ",
+                    "indicatorName": "Stocks available for Calcium ",
+                    "cssColor": null,
+                    "numerator": "1298900",
+                    "denominator": "51571500",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "2.7",
+                    "key": "Number Stocks available for Calcium ",
+                    "indicatorName": "Stocks available for Calcium ",
+                    "cssColor": null,
+                    "numerator": "1389400",
+                    "denominator": "51571500",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "2.7",
+                    "key": "Number Stocks available for Calcium ",
+                    "indicatorName": "Stocks available for Calcium ",
+                    "cssColor": null,
+                    "numerator": "1389400",
+                    "denominator": "51571500",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    },
+    {
+        "groupedIndName": "Percentage of Stock available for Albendazole",
+        "indicatorName": "Percentage of Stock available for Albendazole",
+        "chartsAvailable": [
+            "trend"
+        ],
+        "chartData": [
+            [
+                {
+                    "id": 0,
+                    "axis": "Apr- 2019",
+                    "value": "5.8",
+                    "key": "Number Stock available for Albendazole",
+                    "indicatorName": "Stock available for Albendazole",
+                    "cssColor": null,
+                    "numerator": "121765",
+                    "denominator": "2100366",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "May- 2019",
+                    "value": "1.0",
+                    "key": "Number Stock available for Albendazole",
+                    "indicatorName": "Stock available for Albendazole",
+                    "cssColor": null,
+                    "numerator": "21765",
+                    "denominator": "2100366",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jun- 2019",
+                    "value": "1.0",
+                    "key": "Number Stock available for Albendazole",
+                    "indicatorName": "Stock available for Albendazole",
+                    "cssColor": null,
+                    "numerator": "21265",
+                    "denominator": "2100366",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Jul- 2019",
+                    "value": "1.0",
+                    "key": "Number Stock available for Albendazole",
+                    "indicatorName": "Stock available for Albendazole",
+                    "cssColor": null,
+                    "numerator": "21265",
+                    "denominator": "2100366",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Aug- 2019",
+                    "value": "9.1",
+                    "key": "Number Stock available for Albendazole",
+                    "indicatorName": "Stock available for Albendazole",
+                    "cssColor": null,
+                    "numerator": "191636",
+                    "denominator": "2100366",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Sep- 2019",
+                    "value": "7.7",
+                    "key": "Number Stock available for Albendazole",
+                    "indicatorName": "Stock available for Albendazole",
+                    "cssColor": null,
+                    "numerator": "161636",
+                    "denominator": "2100366",
+                    "timeperiod": null
+                },
+                {
+                    "id": 0,
+                    "axis": "Oct- 2019",
+                    "value": "5.2",
+                    "key": "Number Stock available for Albendazole",
+                    "indicatorName": "Stock available for Albendazole",
+                    "cssColor": null,
+                    "numerator": "108636",
+                    "denominator": "2100366",
+                    "timeperiod": null
+                }
+            ]
+        ],
+        "cssClass": "col-md-6 col-sm-12 col-xs-12 col-lg-6",
+        "thematicMapLegendModels": null,
+        "averageValue": null,
+        "axisName": "Time Period",
+        "unit": "Percentage"
+    }
+]

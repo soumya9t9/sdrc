@@ -1,0 +1,24 @@
+.message-box{
+    margin-bottom: 10px;
+}
+.success{
+    text-align: center;
+    color:#41C484;
+}
+.mat-dialog-content{
+    text-align: center !important;
+}
+::ng-deep .cdk-overlay-pane {
+    max-width: 100% !important;
+    // margin-left: 5% !important;
+}
+::ng-deep .mat-dialog-container {
+    position: relative;
+}
+button.close-btn {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 8px;
+    right: 2px;
+}

@@ -1,0 +1,38 @@
+<div class="h-100 d-flex flex-column">
+  <div class="band-image-wrapper d-none d-md-block">
+    <img src="assets/images/icon/2.png">
+  </div>
+  <div class="menu-container">
+    <div class="accordion" id="accordionExample">
+      <div class="" *ngFor="let menu of leftmenu ; let i=index;">
+        <div class="card-header h6 d-md-none d-flex">
+          <a class="collapsed card-link" data-toggle="collapse" [href]="'#submenu'+i.toString()"
+            [attr.data-target]="'#submenu'+i.toString()">
+            <i class="fa fa-ellipsis-v three-dots"></i>
+            <i class="fa fa-ellipsis-v three-dots"></i>
+            <i class="fa fa-ellipsis-v three-dots"></i>
+          </a>
+          <div class="submenu-wrapper">
+            <span>Manage {{selectedSection.leftsubmenuName}}</span>
+            <i class="fa fa-angle-double-right down-arrow" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div [id]="'submenu'+i.toString()" [ngClass]="{'show': menu.leftmenuName == mainSelectedSection.leftmenuName}"
+          class=" sub-menu-container mb-3 collapse show d-md-block" aria-labelledby="headingOne"
+          data-parent="#accordionExample">
+          <div class="">
+            <ul class="flex-column sub-menu-wrapper nav sub-menu">
+              <li class="nav-item sub-menu-list text-md-left text-center" *ngFor="let submnu of menu.leftsubmenu"
+                [ngClass]="{'active':selectedSection.leftsubmenuName == submnu.leftsubmenuName}"
+                (click)="navigateTo(menu, submnu)" style="cursor: pointer;">
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                <a class="nav-link py-0 px-md-0 d-inline-block submenu-name">{{submnu.leftsubmenuName}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div _ngcontent-c24="" class="section-divider d-md-none"><img _ngcontent-c24="" src="assets/images/Stripe_2.svg" width="100%"> -->
+</div>

@@ -1,0 +1,118 @@
+.filter-section {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+.rej-btn {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    
+}
+.circle{
+    height: 18px;
+    width: 18px;
+    border-radius: 50px;
+    border-color: #F00;
+    background-color: #F00;
+}
+.circle1{
+    height: 18px;
+    width: 18px;
+    border-radius: 50px;
+    border: 2px solid #397a46;
+    background-color: #fff;
+    margin-left: 15px;
+}
+.filter-section .rej-btn {
+    margin-top: 31px;
+}
+.button-group{
+    text-align: center;
+}
+.submit-btn {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+}
+.reset-btn{
+    background-color: #333;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-bottom: 40px;
+}
+.table-head{
+    background-color: #555555;
+    color: #fff;
+}
+.green {
+    height: 18px;
+    width: 18px;
+    border-radius: 50px;
+    background-color: #fff;
+    border: 1px solid #7a7a7a;
+}
+.grey {
+    height: 18px;
+    width: 18px;
+    border-radius: 50px;
+    border: 2px solid #397a46;
+    background-color: #fff;
+}
+button[disabled] {
+    background-color: #999;
+    border-color: #999;
+}
+.circle{
+    height: 18px;
+    width: 18px;
+    border-radius: 50px;
+    border-color: #F00;
+    background-color: #F00;
+}
+.circle1{
+    height: 18px;
+    width: 18px;
+    border-radius: 50px;
+    border: 2px solid #397a46;
+    background-color: #fff;
+    margin-left: 15px;
+}
+.reset-btn[disabled], .submit-btn[disabled] {
+    background-color: #999;
+    border-color: #999;
+}
+.circle-txt{
+    display: inline-flex;
+}
+.text{
+    padding-left: 5px !important;
+}
+.modal-error {
+    margin-top: 88px;
+}
+.lead{
+    margin-bottom: 0;
+}
+.modal-header{
+    padding: 3px 2px 2px 13px;
+}
+.data-error{
+    color: #ff0000;
+}
+.data-success{
+    color: #41C484;
+
+}
+

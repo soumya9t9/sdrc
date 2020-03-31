@@ -1,0 +1,91 @@
+<div class="container-fluid web-entry-container">
+  <div class="page-heading">
+    <div class="h4">Data Entry(Web Based)
+      
+    </div>
+    <div class="switch-web">
+      <div class="excel-web-toggler">
+        <div class="" (click)="redirectToExcelView()">
+          Switch To :
+          <i class="fa fa-file-excel-o" [matTooltip]="TOOL_TIP.showExcelView"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <div class="row">
+      <div class="col-md-4">
+        <label class="select-lable">Goal</label>
+        <mat-form-field>
+          <mat-select name="framework" [(ngModel)]="selectedGoal" (selectionChange)="selectedTarget='All'">
+            <mat-option *ngFor="let opt of goalList" [value]="opt" [id]="opt">
+              {{opt}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <label class="select-lable">Target</label>
+        <mat-form-field>
+          <mat-select name="framework" [(ngModel)]="selectedTarget">
+            <mat-option *ngFor="let opt of availableGoals[selectedGoal] | targetFilterOptions: selectedGoal: goalList: availableGoals" [value]="opt" [id]="opt">
+              {{opt}}
+            </mat-option>
+          </mat-select>
+          
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <label class="select-lable">Frequency</label>
+        <mat-form-field>
+          <mat-select name="framework" [(ngModel)]="selectedFrequency">
+            <mat-option *ngFor="let opt of availableFrquecies" [value]="opt" [id]="opt">
+              {{opt}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- <div class="col-md-3">
+        <button  mat-raised-button (click)="resetFilters()"
+                          class="btn-margin reset-btn" type="submit" color="primary">Reset</button>
+      </div> -->
+    </div>
+  </div>
+  <div class="entry-table-container" *ngIf="allIndicatorData">
+    <!-- <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="min-width: auto;">Sl. NO.</th>
+            <th *ngFor="let col of indTableColumns; let i=index">{{col}}</th>
+            <th>Data Value</th>
+            <th style="min-width: auto;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let indicator of allIndicatorData | selectionFilter: selectedGoal: selectedTarget: selectedFrequency; let i=index">
+            <td>{{(p-1)*5 + i +1}}</td>
+            <td *ngFor="let col of indTableColumns; let j=indexx">{{indicator[col]}}</td>
+            <td>
+              <mat-form-field><input class="text-center" matInput [(ngModel)]="indicator['Data Value']">
+              </mat-form-field>
+            </td>
+            <td [ngClass]="{'no-edit': indicator.Status == 'grey'}"><div class="status-circle" [ngClass]="indicator.Status"></div></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div> -->
+    <sdrc-table [id]="'tab1'" [rowData]="allIndicatorData | selectionFilter: selectedGoal: selectedTarget: selectedFrequency" 
+            [columnData]="indTableColumns" [maxTableHeight]="'500px'" [headerFixed]="true"
+            [selectDropdown]="false" [downloadPdf]="false" [siNoAvailable]="true" [isTotalAvailable]="false" [removeTotal]="true"
+            (onActionButtonClicked)="saveIndicatorData($event)" (onShowRemarkButtonClicked)="openRemarkModal($event)">
+          </sdrc-table>
+          
+  </div>
+
+  
+</div>
+

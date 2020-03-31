@@ -1,0 +1,64 @@
+[
+    [
+        {
+            "axis": "2015",
+            "value": "0",
+            "id": 540,
+            "legend": "SC",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "93",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "2016",
+            "value": "48.4",
+            "id": 541,
+            "legend": "ST",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "2017",
+            "value": "58.1",
+            "id": 542,
+            "legend": "OBC",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "361",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "2018",
+            "value": "57.0",
+            "id": 543,
+            "legend": "Minority",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "2019",
+            "value": "65.0",
+            "id": 544,
+            "legend": "General",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "200",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        }
+    ]
+]

@@ -1,0 +1,285 @@
+
+<div class="container-fluid dashboard-section">
+  <div class="row">
+
+      <div class="col-md-12" >
+        <div class="all-goals">
+                <ul class="list-goal flex-container">
+                    <li *ngFor="let opt of allGoals; let i =index;" class="goal-icon-list">
+                        <button type = "submit" name = "learn" value = "myimage" class="btn-img" (click)="selectGoal(opt)" [ngClass]="[i == 0 ? 'button-active' : 'button-standard']">
+                            <img  [src]="imagePath + (this.allGoals[i].value !='INDEX'?this.allGoals[i].value.split(':')[0] : 'sustainable')+'.jpg'"  [matTooltip]="opt.value!='INDEX'?opt.value:'Overall SDG Index'" [ngClass]="{'active': selectedGoalName == opt.value}">
+                        </button>
+                    </li>
+                </ul>
+        </div>
+           <div class="row">
+            <div class="col-md-3 left-section">
+               <div class="row">
+                <div class="col-md-12">
+                    <img src="assets/images/Image.png" width="100%" height="15px">
+                </div>
+               </div>
+                <div class="row">
+                    <div class="col-md-2 goal-logo" *ngIf="allGoalsName != 'GOAL_0'">
+                        <img class="selectedIcon" [src]="selectedGoalName != undefined ? imagePath  + selectedGoalName.split(':')[0]+ '.jpg':''" width="57px">
+                    </div>
+                    <div class="col-md-10 goal-desc">
+                          <div *ngIf="allGoalsName == 'GOAL_0'">
+                            <p class="sustainable" style="margin-bottom: 0;">The Sustainable Development Goals(SDGs) are an ambitious commitment by the
+                              world nations which set
+                              out a universal and an unprecedented agenda that embraces economic, environmental and social aspects
+                              of the societies. The progress of the world to meet the SDGs, largely depends on India's progress. </p>
+                          </div>
+                          <div class="name-section" *ngIf="allGoalsName != 'GOAL_0'">
+                          <h5 class="shortname" >{{goalShortName[allGoalsName]}}</h5>
+                          <!-- <p style="margin-bottom: 0;"> </p> -->
+                              <span class="description" >{{goalDescription[allGoalsName]}}</span>  
+                          </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 dropdown-section" >
+                    <label class="select-lable" for="usr">Select Department :</label>
+                    <mat-form-field >
+                        <mat-select name="departmentName" [(ngModel)]="selectedDepartment" >
+                        <mat-option  *ngFor="let opt of departmentListFromLineData" [value]="opt" [matTooltip]="opt">
+                            {{opt}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12" >
+                    <label class="select-lable" for="usr">Select Target :</label>
+                    <mat-form-field >
+                        <mat-select name="targetName" [(ngModel)]="selectedTargetId" (selectionChange)="selectTarget()" [disabled]="selectedGoalName == 'INDEX'" >
+                        <mat-option  *ngFor="let opt of targets" [value]="opt.key" [matTooltip]="opt.value">
+                            {{opt.value}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12" >
+                    <label  class="select-lable" for="usr">Select Indicator :</label>
+                    <mat-form-field>
+                    <mat-select name="indicator" [(ngModel)]="selectedIndicatorId" (selectionChange)="selectIndicator()" [disabled]="selectedGoalName == 'INDEX'">
+                        <mat-option *ngFor="let opt of allIndicators" [value]="opt.key" [matTooltip]="opt.value">
+                        {{opt.value}}
+                        </mat-option>
+                    </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12"  >
+                    <label  class="select-lable" for="usr">Select Area :</label>
+                    <mat-form-field>
+                    <mat-select name="indicator" [(ngModel)]="selectedDistrictName" (selectionChange)="selectDistrict()" [disabled]="selectedGoalName == 'INDEX'">
+                        <mat-option *ngFor="let opt of allDistricts; let i=index; " [value]="opt" [matTooltip]="opt.areaName">
+                        {{opt.areaName}}
+                        </mat-option>
+                    </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-md-9 right-section" >
+                <div class="goal-name">
+                    <span class="good-health" > {{selectedGoalName !='INDEX'?selectedGoalName:'Overall SDG Index'}}</span>
+                    <!-- <i class="material-icons help-icon"> help_outline </i> -->
+                    <img class="help-icon" src="assets/images/Help.png" >
+                </div>
+                <div class="target-ind">
+                    <div *ngIf="selectedTarget"><b>Target:</b> {{selectedTarget.value}}</div>
+                    <div *ngIf="selectedIndicator"><b>Indicator:</b> {{selectedIndicator.value}}</div>
+                </div>
+                <div id="thematic-map-main-div">
+                    <div class="row map-content overflow-hidden">
+                        <div class="col-md-10" [ngClass]="{'pl-0': dashboardView == 'bar'}" >
+    
+                            <section class="map-view" id="map-view" *ngIf="dashboardView == 'map'" >
+                                <div class="statename">
+                                   <a (click)="showTrendChart()" ><span>Uttarakhand : {{mapData.avg?avg.Uttarakhand:avg.Uttarakhand==""?'':'NA'}} </span></a> 
+                                </div>
+                                <div id="map" >
+                                 <app-thematic-map  [mapData]="mapData.dataCollection" [areaCode]="'IND005'" (onAreaSelection)="onAreaSelection($event)" [unitVal] = "units" [selectedIndicator]="selectedIndicatorId" [districtLineData]="districtLineChartRequestModel" ></app-thematic-map>
+                                </div>
+                            </section>
+                       
+                                <section class="barchart" [ngStyle]="{'height': !barChartData ? 'auto': '500px' }" id="barchart-view" *ngIf="dashboardView == 'bar'">
+                                    <div class="statename" *ngIf="barChartData">
+                                        <img src="assets/images/dotted.png">
+                                        <span>Uttarakhand Average : {{mapData.avg?avg.Uttarakhand:avg.Uttarakhand==""?'':'NA'}} </span>
+                                     </div>
+                                    <sdrc-single-bar-chart *ngIf="barChartData"  [color]="selectedColor"[avg]="avg.Uttarakhand" [average]="true" [data]="barChartData"></sdrc-single-bar-chart>
+                                        <div class="no-data-available" *ngIf="!barChartData">
+                                                No data available
+                                        </div>
+                                </section>
+                         
+
+          
+                            <section class="tableview" *ngIf="dashboardView == 'table'">
+                                <div class="dashboard-tabledata" *ngIf="mapData.dataCollection">
+                                    <table class="table table-striped table-value fixed_header">
+                                        <thead class="table-data" [ngStyle]="{'background-color':headingBg?headingBg:'#555555'}" >
+                                          <tr>
+                                            <th>slNo.</th>
+                                            <th>Area Name</th>
+                                            <th>Value</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody class="table-datavalue">
+                                          <tr *ngFor="let opt of mapData.dataCollection; let i=index;">
+                                            <td>{{i+1}}</td>
+                                            <td>{{opt.areaName}} </td>
+                                            <td> {{opt.value}} </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                                <div class="nodata" *ngIf="!mapData.dataCollection">
+                                  <span class="nodata-text">No Data Available</span>
+                                </div>
+                            </section>
+                            <div class="timeperiod">
+                                <p>Time Period : {{timePeriod}} </p>
+                                <p *ngIf="selectedIndicator" >Department : {{departmentName}} </p>
+                            </div>
+                          </div>
+                        <div class="col-md-2 ">
+                              <ul class="view-list download-space">                                   
+                                  <li *ngIf="thematicViewVisible"><i [ngClass]="{'disabled': dashboardView == 'map'}" class="fa fa-globe right-icon " aria-hidden="true" [ngStyle]="{'color':dashboardView === 'map' ? '#000' : '' }"  (click)="dashboardView = 'map'" matTooltip="{{dashboardView != 'map' ? 'Thematic View':''}}"></i></li>
+                                  <li><i [ngClass]="{'disabled': dashboardView == 'bar'}" class="fa fa-bar-chart right-icon bar-icon " aria-hidden="true" [ngStyle]="{'color':dashboardView === 'bar' ? '#000' : '' }"  (click)="dashboardView = 'bar'" matTooltip="{{dashboardView != 'bar' ? 'BarChart View':''}}"></i></li>
+                                  <li><i [ngClass]="{'disabled': dashboardView == 'table'}" class="fa fa-table right-icon table-icon " aria-hidden="true" [ngStyle]="{'color':dashboardView === 'table' ? '#000' : '' }" (click)="dashboardView = 'table'" matTooltip="{{dashboardView != 'table' ? 'Table View':''}}"></i></li>
+                                  <li><i class="fa fa-file-pdf-o right-icon download-icon " aria-hidden="true"   (click)="downloadExcelPDF('pdf')" matTooltip="Download PDF"></i></li>
+                                  <li><i class="fa fa-file-excel-o right-icon excel " aria-hidden="true" matTooltip="Download Excel" (click)="downloadExcelPDF('excel')"></i></li>
+                              </ul>
+          
+                            <div *ngIf="dashboardView == 'map'">
+                                <img class="direction-img" src="assets/images/icon/Legend-Icom.png">
+                            </div>
+                            <div  id="legendsection" class="legends" *ngIf="dashboardView == 'map'">
+                                <h6 class="legend-heading">Rating</h6>
+                                    <ul class="map-legend-list">
+                                        <!-- <li *ngFor ="let legend of legendData; let i=index" class="legend_list">
+                                            <div class="{{legend.value}} legnedblock" [ngStyle]="{'background-color': 
+                                              legend.value == 'firstslices'? selectedColor.color4: legend.value == 'secondslices' ? selectedColor.color2 : legend.value == 'thirdslices' ? selectedColor.color1: '#a5a7a9'}"> </div>    
+                                              <span	class="legend_key">{{legend.key}}</span>                                          
+                                        </li> -->
+                                          <li class="nodata-map" >
+                                              <div class="forthslices"> <span class="count"> {{achieverCount}} </span> </div>    
+                                              <span class="legend_key">Achiever (>99)</span>  
+                                          </li>
+                                          <li class="nodata-map" >
+                                            <div class="thirdslices"> <span class="count">{{runnerCount}}</span></div>    
+                                            <span class="legend_key">Front Runner (65-99)</span>  
+                                        </li> 
+                                        <li class="nodata-map" >
+                                            <div class="secondslices"><span class="count" >{{performerCount}}</span> </div>    
+                                            <span class="legend_key">Performer (50-64)</span>  
+                                        </li>
+                                        <li class="nodata-map" >
+                                            <div class="firstslices"><span class="count">{{aspirantCount}}</span> </div>    
+                                            <span class="legend_key">Aspirant (0-49)</span>  
+                                        </li> 
+                                        <li class="nodata-map" >
+                                            <div class="nodata-legend"> </div>    
+                                            <span class="legend_key">Information Unavailable</span>  
+                                        </li>  
+                                    </ul>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+                <div class="container-fluid linechart-container" id="all-indicator-container">
+                    <div class="row district-section">
+  
+                        <div class="col-md-6 selecteddistrict">
+                            <span> {{selectedDistrictName?selectedDistrictName:'Uttarakhand'}} </span>
+                        </div>
+                        <div class="col-md-6 star">
+                            <i class="fa fa-star star-icon" aria-hidden="true"></i> <span class="used-index">Used for Index computation</span>
+                        </div>
+                    </div>
+                  
+                    <div class="row linechart-section" id="trend-chart-section" >
+                        <div  [ngClass]="chart.cssClass" class="col-md-12 col-xs-12 col-lg-6 linechart" 
+                                *ngFor="let chart of indicatorModels | departmentFilter: selectedDepartment; let i =index" [id]="'download-chat-img' +
+                                chart.groupedIndName+chart.chartsAvailable[0]">    
+                            <mat-card class="linchart-download">
+                                <div class="chart-head row justify-content-between">
+                                    <!-- <div class="ind-group col-md-10 col-xl-10">{{chart.indicatorName}} <div *ngIf="chart.takenInIndexCal=='YES'"><i class="fa fa-star ind-star-icon" aria-hidden="true"></i></div></div>  -->
+                                    <div class="download linechart-icon">
+                                        <ul>
+                                            <!-- <li><i class="fa fa-bar-chart right-icon bar-icon" aria-hidden="true" (click)="showLineBarChart()" matTooltip="BarChart View"></i></li> -->
+                                            <li><i class="fa fa-picture-o right-icon img-icon pr-3" aria-hidden="true" (click)="downloadChartToImage($event,'download-chat-img' +
+                                              chart.groupedIndName+chart.chartsAvailable[0], chart.groupedIndName)" matTooltip="Image Download"></i></li>
+                                              <li><i *ngIf="chart.chartData && chart.chartData[0]  && (chart.chartsAvailable[0] == 'trend')" class="fa fa-bar-chart right-icon img-icon pr-3" aria-hidden="true" (click)="toggleCardChartView(chart)"></i></li>
+                                              <li><i *ngIf="chart.chartData && chart.chartData[0]  && (chart.chartsAvailable[0] == 'bar')" class="fa fa-line-chart right-icon img-icon pr-3" aria-hidden="true" (click)="toggleCardChartView(chart)"></i></li>
+                                        </ul>
+                                    </div>
+                                  </div>
+                                <app-dashboard-line-chart 
+                                    *ngIf="chart.chartData && chart.chartData[0]  && (chart.chartsAvailable[0] == 'trend')"
+                                    [data]="convertToLineChartFormat(chart)" [areaChart]="true" [lineWithDataPoint]="true" [unitVal]="chart.unit">
+                                </app-dashboard-line-chart> 
+
+                                <sdrc-bar-chart *ngIf="chart.chartData && chart.chartData[0] && (chart.chartsAvailable[0] == 'bar')"
+                                    [data]="convertToBarChartFormat(chart)">
+                                </sdrc-bar-chart>                         
+                            </mat-card>
+                         </div>
+                    </div>
+                   </div>
+                </div>
+           </div>
+        
+          <div class="row composite-heading" *ngIf="isMapDataAvailable">
+              <div class="col-md-12">
+                      <span>Composite Index</span>
+              </div>
+          </div>
+
+        </div>
+       <hr *ngIf="isMapDataAvailable">
+
+  </div>
+</div>
+
+    <div class="container-fluid line-chart-section linchart-download" *ngIf="lineChartVisible">
+        <div class="row district-line-chart" *ngFor="let chart of indicatorModels; let i =index" >
+            <button class="close trend-close" aria-hidden="true" type="button" (click)="closeViz()">
+                <i class="fa fa-window-close" aria-hidden="true"></i>
+            </button>
+            <div class="chart-head">
+            </div>
+                <div class="col-md-12 text-center" style="font-weight: 500;color: #fff">{{selectedAreaName?selectedAreaName.areaName:'Uttarakhand'}}</div>
+                <div class="chart-head row justify-content-between">
+                    <!-- <div class="ind-group col-md-10 col-xl-10">{{chart.indicatorName}} <div *ngIf="chart.takenInIndexCal=='YES'"><i class="fa fa-star ind-star-icon" aria-hidden="true"></i></div></div>  -->
+                    <div class="download linechart-icon modal-toggle">
+                        <ul>
+                            <!-- <li><i class="fa fa-bar-chart right-icon bar-icon" aria-hidden="true" (click)="showLineBarChart()" matTooltip="BarChart View"></i></li> -->
+                            <li><i class="fa fa-picture-o right-icon img-icon pr-3" aria-hidden="true" (click)="downloadChartToImage($event,'download-chat-img' +
+                              chart.groupedIndName+chart.chartsAvailable[0], chart.groupedIndName)" matTooltip="Image Download"></i></li>
+                              <li><i *ngIf="chart.chartData && chart.chartData[0]  && (chart.chartsAvailable[0] == 'trend')" class="fa fa-bar-chart right-icon img-icon pr-3" aria-hidden="true" (click)="toggleCardChartView(chart)"></i></li>
+                              <li><i *ngIf="chart.chartData && chart.chartData[0]  && (chart.chartsAvailable[0] == 'bar')" class="fa fa-line-chart right-icon img-icon pr-3" aria-hidden="true" (click)="toggleCardChartView(chart)"></i></li>
+                        </ul>
+                    </div>
+                  </div>
+                    <app-dashboard-line-chart 
+                        *ngIf="chart.chartData && chart.chartData[0]  && (chart.chartsAvailable[0] == 'trend')"
+                        [data]="convertToLineChartFormat(chart)" [areaChart]="true" [lineWithDataPoint]="true" [unitVal]="chart.unit">
+                    </app-dashboard-line-chart> 
+                    <sdrc-bar-chart *ngIf="chart.chartData && chart.chartData[0] && (chart.chartsAvailable[0] == 'bar')"
+                    [data]="convertToBarChartFormat(chart)">
+                    </sdrc-bar-chart> 
+                <div class="col-md-12 modal-star">
+                        <i class="fa fa-star star-icon-modal" aria-hidden="true"></i> <span class="modal-text">Used for Index computation</span>
+                </div>
+        </div>
+    </div>
+
+<div class="col-md-12 scroll-top">
+    <button (click)="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-circle-up scroll-top-icon" aria-hidden="true"></i></button>
+</div>
+

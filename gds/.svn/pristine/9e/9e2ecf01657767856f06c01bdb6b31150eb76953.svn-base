@@ -1,0 +1,20 @@
+$first-color: #1CABE2;
+$second-color: transparent;
+$third-color:  #0d6e3e;
+$fourth-color: #a4a1c2;
+$fifth-color: #ecebff;
+$sixth-color: #98b0e0;
+$seventh-color: #e6eeff;
+$eighth-color: #e0d2c3;
+$ninth-color: #f0e1d1;
+$tenth-color: #f0bf7f;
+$eleventh-color: #fff0de;
+$twelvth-color: #ebcec9;
+$thirteenth-color: #f5d8d2;
+$fourteenth-color: #f0a997;
+$fifteenth-color: #ffe7e0;
+$sixteenth-color: #dbc7d0;
+$seventeenth-color: #ebd5df;
+$eighteenth-color: #deb9c9;
+$ninteenth-color: #ffedf2;
+

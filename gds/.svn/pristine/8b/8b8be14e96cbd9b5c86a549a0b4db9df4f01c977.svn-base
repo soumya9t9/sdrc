@@ -1,0 +1,87 @@
+<div class="col-md-12 arrow-section">
+  <div class="back-arrow">
+    <i class="material-icons back-icon" (click)="menuItemClickHandler($event)"> arrow_right_alt </i>
+  </div>
+</div>
+<div class="col-md-12 language-section">
+  <div class="choose-language">
+    <span>Choose language :</span>
+  </div>
+  <ul class="language">
+    <li><a class="hindi">English</a></li>
+    <li><a>हिन्दी</a></li>
+
+  </ul>
+</div>
+<div class="col-md-12 welcome-section">
+  <div class="user-setting">
+    <div>
+      <i class="fa fa-user-circle user-icon" aria-hidden="true"></i>
+    </div>
+    <li *ngIf="!!app.checkLoggedIn()" style="list-style: none;">
+      <a class="english">Welcome &nbsp;<b class="logged-user">{{app.getUsername()}}</b></a>
+    </li>
+  </div>
+  <!-- <div class="section-divider">
+    <img src="assets/images/Stripe_2.svg" width="100%">
+  </div> -->
+</div>
+
+<div class="menu-items">
+  <ul ngClass="{slide : isMenuOpen}">
+    <!-- <li *ngFor="let item of menuslist;let index=index" (click)="menuItemClickHandler($event,index)">
+          {{item}}
+        </li> -->
+    <li class="nav-item " (click)="menuItemClickHandler($event)">
+      <a class="nav-link" [ngClass]="{'active': router.url=='/home' || router.url=='/'}" routerLink="">Home</a>
+    </li>
+    <li class="nav-item " (click)="menuItemClickHandler($event)">
+      <a class="nav-link" [ngClass]="{'active': router.url=='/about-sdg'}" routerLink="about-sdg">About SDG</a>
+    </li>
+    <li class="nav-item " [ngClass]="{'active': router.url=='/resources'}" (click)="menuItemClickHandler($event)">
+      <a class="nav-link" routerLink="resources">Resources</a>
+    </li>
+    <li class="nav-item " [ngClass]="{'active': router.url=='/contact-us'}" (click)="menuItemClickHandler($event)">
+      <a class="nav-link" routerLink="contact-us">Contact Us</a>
+    </li>
+    <!-- <li class="nav-item " *ngIf="app.checkUserAuthorization(['DATA_ENTRY'])"
+      [ngClass]="{'active': router.url=='/data-entry/data-entry-view'}" (click)="menuItemClickHandler($event)">
+      <a class="nav-link" mdbRippleRadius routerLink="/data-entry/data-entry-view">Data Entry</a>
+    </li> -->
+    <li class="nav-item " *ngIf="app.checkLoggedIn() && checkDeptStatus() != false && checkDistStatus() != false && checkForAccess(HighLevelAuthoritiesKey.DATA_ENTRY)"
+      [ngClass]="{'active': router.url=='/data-entry/data-entry-web'}" (click)="menuItemClickHandler($event)">
+      <a class="nav-link" mdbRippleRadius routerLink="/data-entry/data-entry-web">Data Entry</a>
+    </li>
+    <li class="nav-item " *ngIf="app.checkLoggedIn() && (checkDeptStatus() == false || checkDistStatus() == false) && checkForAccess(HighLevelAuthoritiesKey.DATA_ENTRY)">
+      <a class="nav-link" mdbRippleRadius style="cursor: pointer;" (click)="showDialogLinkDisabled()">Data Entry</a>
+    </li>
+    <li class="nav-item " *ngIf="app.checkLoggedIn() && checkDeptStatus() != false && checkDistStatus() != false && checkForAccess(HighLevelAuthoritiesKey.REJECT_DATA)"
+      [ngClass]="{'active': router.url=='/submission-rejection'}" (click)="menuItemClickHandler($event)">
+      <a class="nav-link" mdbRippleRadius routerLink="/submission-rejection">Submission Management</a>
+    </li>
+    <li class="nav-item " *ngIf="app.checkLoggedIn() && (checkDeptStatus() == false  || checkDistStatus() == false) && checkForAccess(HighLevelAuthoritiesKey.REJECT_DATA)">
+      <a class="nav-link" mdbRippleRadius style="cursor: pointer;" (click)="showDialogLinkDisabled()">Submission Management</a>
+    </li>
+    <li class="nav-item " *ngIf="app.checkLoggedIn()" [ngClass]="{'active': router.url=='/dashboard/dashboard-view'}"
+      (click)="menuItemClickHandler($event)">
+    <li class="nav-item " *ngIf="app.checkLoggedIn() && checkForAccess(HighLevelAuthoritiesKey.DASHBOARD)"
+      [ngClass]="{'active': router.url=='/dashboard/dashboard-view'}" (click)="menuItemClickHandler($event)">
+      <a class="nav-link" mdbRippleRadius routerLink="/dashboard/dashboard-view">Dashboard</a>
+    </li>
+    <li class="nav-item " *ngIf="app.checkLoggedIn() && checkForAccess(HighLevelAuthoritiesKey.MDM)"
+      [ngClass]="{'active': router.url=='/mdm'}" (click)="menuItemClickHandler($event)">
+      <a class="nav-link" mdbRippleRadius [routerLink]="['/mdm/target-value']">Master Data Management</a>
+    </li>
+    <li class="nav-item " [ngClass]="{'active': router.url=='/login'}" *ngIf="!app.checkLoggedIn()"
+      (click)="menuItemClickHandler($event)">
+      <a class="nav-link" routerLink="login">Login</a>
+    </li>
+    <li class="nav-item" *ngIf="app.checkLoggedIn()" (click)="menuItemClickHandler($event)">
+      <a class="nav-link admin-group" style="cursor: pointer" routerLink="/change-password"><span
+          class=" d-sm-inline-block">Change Password</span></a>
+    </li>
+    <li class="nav-item" *ngIf="app.checkLoggedIn()" (click)="logout()" (click)="menuItemClickHandler($event)">
+      <a class="nav-link admin-group" style="cursor: pointer"><span class=" d-sm-inline-block">Logout</span></a>
+    </li>
+  </ul>
+</div>

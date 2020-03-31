@@ -1,0 +1,38 @@
+@import "../../../assets/styles/color";
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+}
+.preview-modal {
+    height: calc(100vh - 100px);
+    padding: 0;
+    padding-bottom: 56px;
+}
+.preview-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.scheme-indicator-wrapper {
+    justify-content: space-between;
+    display: flex;
+    @media(max-width: 767px) {
+        flex-direction: column-reverse !important;
+        .selected-indicators {
+            max-width: 100% !important;
+            margin-bottom: 20px !important;
+        }
+    }
+}
+.goal-name {
+    font-weight: 700;
+}
+.border-none {
+    border: none !important;
+}

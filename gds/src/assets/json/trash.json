@@ -1,0 +1,9 @@
+{
+    "controlType": "button",
+    "apiUrl": "v1/department/delete",
+    "value": "",
+    "type": "submit",
+    "class": "btn btn-submit delete",
+    "tooltip": "Delete",
+    "icon": "fa-trash fa-lg"
+}

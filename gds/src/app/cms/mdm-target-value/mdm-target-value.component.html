@@ -1,0 +1,474 @@
+<div class="container-fluid cms-container">
+  <!-- HEADING START -->
+  <div class="page-heading d-none d-md-block">
+    <div *ngIf="selectedSectionData" class="h5 m-0">Manage {{selectedSectionData.leftsubmenuName}}</div>
+    <div class=""></div>
+  </div>
+  <!-- HEADING END -->
+
+  <!-- EXCEL-WEB TOGGLER START -->
+  <div class="excel-web-toggler">
+    <div class="" (click)="toggleView()">
+      Switch To :
+      <i class="fa fa-file-excel-o" *ngIf="this.currentView === MDMViewType.Web"
+        [matTooltip]="TOOL_TIP.showExcelView"></i>
+      <i class="fa fa-globe" *ngIf="this.currentView === MDMViewType.Excel" [matTooltip]="TOOL_TIP.showWebView"></i>
+    </div>
+  </div>
+  <!-- EXCEL-WEB TOGGLER END -->
+
+  <div class="row mdm-row">
+    <!-- SIDE MENU START -->
+    <div class="col-md-2 side-menu-wrapper">
+      <app-cms-side-menu *ngIf="sectionData && sectionData.length" [menu]="app.cmsMenu" [submenu]="app.cmsSubmenu"
+        [leftmenu]="sectionData" [tempLeftMenu]="tempSectionData" (selectedSectionEmitter)="onSubMenuClick($event)">
+      </app-cms-side-menu>
+    </div>
+    <!-- SIDE MENU END -->
+
+    <!-- MAIN CONTENT START -->
+    <div class="col-md-10 content">
+      <!-- WEB BASED VIEW START -->
+      <div *ngIf="this.currentView == MDMViewType.Web">
+
+        <!-- FORM SECTION START -->
+        <form class="table-div mdm-border" [formGroup]="sdrcForm" [@slideInOut]
+          *ngIf="showForm && (hasUserAccessToMDM(AuthoritiesTyeps.create) || hasUserAccessToMDM(AuthoritiesTyeps.edit))"
+          name="form" (ngSubmit)=" f.valid||f.disabled? submit(f, sdrcForm):scrollToError()" #f="ngForm">
+          <!-- TODO: f.valid||f.disabled? :scrollToError() -->
+          <div class="form-header d-flex justify-content-between">
+            <div>{{update ? 'Edit' : 'Create'}}
+              <span *ngIf="selectedSectionData && selectedSectionData.leftsubmenuName">
+                {{selectedSectionData.leftsubmenuName}}
+              </span>
+            </div>
+
+            <i class="fa fa-times cursor-pointer" aria-hidden="true" (click)="toggleAndResetForm()"></i>
+            <!-- <img class="image" src="assets/images/icon/Close.png" (click)="toggleAndResetForm()"> -->
+          </div>
+          <mat-card
+            *ngIf="questionUIArray.length && indicatorsFormConfig && indicatorsFormConfig.length && indicatorsFormConfig[0]?.formInputs[0]?.formInputs[0]?.formInputs[0]?.formInputs[0]?.formInputs; else noDataAvailable"
+            class="
+            card-border">
+            <p class="allMandatory">All fields are mandatory.(All years are financial years)</p>
+            <div class="control-wrapper d-flex flex-wrap">
+              <div
+                class="formpadding align-self-center {{['table','btn-group', 'table-values'].includes(field.controlType) ? 'over-flow-x col-md-12':' col-md-6'}}"
+                *ngFor="let field of questionUIArray; let i = index;"
+                [ngClass]="{'d-inline-block': ['submit', 'edit', 'reset', 'button', btn-group].includes(field.controlType), 'd-none': ['hidden', null].includes(field.controlType)}">
+                <!--  [hidden]=" field.controlType == 'submit' field.dependentCondition?.length && checkIsDependencyCondition(field)"  -->
+                <p *ngIf="field.infoAvailable && selectedSectionData.leftsubmenuName =='Banner'" class="hints"><span
+                    class="highlightText">Note:</span>{{extNameMessage}}<br>Maximum 2 photos can be added.</p>
+                <p *ngIf="field.infoAvailable && selectedSectionData.leftsubmenuName !='Banner'" class="hints"><span
+                    class="highlightText">Note:</span>{{extNameMessage}}</p>
+                <div class="row" [id]="field.key" *ngIf="field.controlType && field.controlType != 'hidden'">
+
+                  <label [attr.for]="field.columnName" class="col-md-12 label-section"
+                    [ngClass]="{'indicator-label':'table-values'== field.controlType}"
+                    *ngIf="field.controlType != 'beginRepeatImageRow' &&field.controlType !='beginRepeat' && field.controlType !='heading' && field.controlType != 'table' && field.controlType != 'button' && field.controlType != 'submit' && field.controlType != 'reset' && field.label && !isASingleCheckBox(field)">{{field.serialNumb}}{{field.label}}
+                    <span *ngIf="field.required" class="asterisk-mark">*</span>
+                  </label>
+                  <div [ngSwitch]="field.controlType" class="input-holder type-center"
+                    [ngClass]="{'table-value-wrapper':'table-values'== field.controlType, 'col-md-12': ['beginRepeatImageRow', 'beginRepeat', 'btn-group', 'table', 'table-values'].includes(field.controlType), 'col-md-11' : true}">
+
+                    <!-- PLAIN TEXT INFO-->
+                    <div appearance="none" *ngSwitchCase="'info'">
+                      {{field.value}}
+                    </div>
+
+                    <mat-form-field appearance="none" class="disabled-chips" *ngSwitchCase="'geolocation'">
+                      <input matInput maxlength="{{field.maxLength}}" type="{{field.type}}" name="{{field.columnName}}"
+                        formControlName="{{field.columnName}}" readonly [(ngModel)]="field.value">
+                      <mat-error class="padding-bottom ">
+                      </mat-error>
+                      <div id="map"></div>
+                    </mat-form-field>
+
+                    <!-- TEXTBOX START -->
+                    <mat-form-field appearance="none" class="disabled-chips" *ngSwitchCase="'textbox'">
+                      <input matInput maxlength="{{field.maxLength}}" type="{{field.type}}" min="0"
+                        name="{{field.columnName}}" formControlName="{{field.columnName}}" [(ngModel)]="field.value"
+                        [placeholder]="field.placeHolder" trimOnBlur [min]="field.min">
+                      <mat-error class="padding-bottom">
+                        {{getTextFieldErrors(sdrcForm.controls[field.columnName], field)}}
+                      </mat-error>
+                    </mat-form-field>
+
+                    <!-- TEXT AREA START -->
+                    <mat-form-field appearance="none" class="disabled-chips" *ngSwitchCase="'textarea'">
+
+                      <textarea matInput name="{{field.columnName}}" formControlName="{{field.columnName}}"
+                        [(ngModel)]="field.value" trimOnBlur rows="4" cols="50" class="cms-textarea"></textarea>
+                      <mat-error class="padding-bottom">
+                        {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}}
+                        {{sdrcForm.controls[field.columnName]?.errors?.pattern? errors[field.type]:sdrcForm.controls[field.columnName]?.errors?.minlength ? field.label + ' should be minimum ' + sdrcForm.controls[field.columnName]?.errors?.minlength.requiredLength + ' character': sdrcForm.controls[field.columnName]?.errors?.maxlength ? field.label + ' should be maximum ' + sdrcForm.controls[field.columnName]?.errors?.maxlength.requiredLength + ' character': ''}}
+                        {{sdrcForm.controls[field.columnName]?.errors?.whiteSpace? 'Please provide '+field.label: ''}}
+                        {{sdrcForm.controls[field.columnName]?.errors?.min? field.label +' should be minimum 0': ''}}
+                        {{sdrcForm.controls[field.columnName]?.errors?.max? field.label +' should be maximum '+field.max: ''}}
+                      </mat-error>
+                    </mat-form-field>
+
+                    <!-- DROP DOWN -->
+                    <mat-form-field appearance="none" *ngSwitchCase="'dropdown'">
+                      <mat-select formControlName="{{field.columnName}}" [(ngModel)]="field.value"
+                        (selectionChange)="dropdownSelectOnChange(field)">
+                        <mat-option *ngFor="let opt of field.options || getDropdownOptions(field) | disableOptions"
+                          [value]="opt[field.optionKey] || opt.key || opt" [disabled]="opt['disableOption']">
+                          {{opt[field.optionLabel] || opt.value || opt}}</mat-option>
+                      </mat-select>
+                      <mat-error class="padding-bottom">
+                        {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}}
+                      </mat-error>
+                    </mat-form-field>
+
+                    <!-- MULTISELECT -->
+                    <mat-form-field appearance="none" *ngSwitchCase="'multiSelect'">
+                      <mat-select [formControlName]="field.columnName" (selectionChange)="multiSelectOnChange(field)"
+                        [(ngModel)]="field.value" multiple>
+                        <!-- <mat-option *ngIf="field.selectAllOption" [disabled]="true" class="selectAllOption"> -->
+                        <!-- <mat-checkbox (change)="checkUncheckAllSelection(field)" [checked]="field.allChecked">
+                        select all</mat-checkbox> -->
+                        <!-- </mat-option> -->
+                        <mat-option selected="checkIfSelected(field, options)" (change)="multiSelectOnChange(field)"
+                          *ngFor="let opt of field.options || getOptions(field) | disableOptions"
+                          [value]="opt[field.optionKey] || opt.key" [disabled]="opt['disableOption']">
+                          {{opt[field.optionLabel] || opt.value}}</mat-option>
+                      </mat-select>
+                      <mat-error class="padding-bottom">
+                        {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}}
+                      </mat-error>
+                    </mat-form-field>
+
+                    <!-- CHECKBOX START -->
+                    <section class="example-section mr-3 margin-bottom margin-mintop" *ngSwitchCase="'checkbox'">
+                      <mat-checkbox *ngFor="let opt of field.options" formControlName="{{field.columnName}}"
+                        [(ngModel)]="field.value" [checked]="opt.checked" (change)="checkboxChange(opt, field)"
+                        class="example-margin" color="primary" [labelPosition]="isASingleCheckBox(field)">
+                        {{opt.label || opt.value}}
+                        <!-- {{opt.checked}} -->
+                      </mat-checkbox>
+
+                      <div
+                        *ngIf="sdrcForm.controls[field.columnName]?.errors?.required && (sdrcForm.controls[field.columnName]?.touched || f.submitted)"
+                        class=" ng-tns-c4-7 ng-trigger ng-trigger-transitionMessages ng-star-inserted errormssgeront lineheight">
+
+                        <mat-error class="padding-bottom">
+                          {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}}
+                        </mat-error>
+                      </div>
+                    </section>
+
+                    <!-- RADIO BUTTON START -->
+                    <section class=" adding-mintop margin-bottom margin-mintop" *ngSwitchCase="'radio'">
+                      <mat-radio-group formControlName="{{field.columnName}}" [(ngModel)]="field.value"
+                        (change)="consoleLog(field)">
+                        <mat-radio-button *ngFor="let opt of field.options" [checked]="opt.key == field.value"
+                          [value]="opt.key" (change)="radioChange(opt.key,field)" class="pr-2">{{opt.label}}
+                        </mat-radio-button>
+                      </mat-radio-group>
+
+                      <div
+                        *ngIf="sdrcForm.controls[field.columnName]?.errors?.required && (sdrcForm.controls[field.columnName]?.touched || f.submitted)"
+                        class="ng-tns-c4-7 ng-trigger ng-trigger-transitionMessages ng-star-inserted errormssgeront lineheight">
+                        <mat-error class="padding-bottom">
+                          {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}}
+                        </mat-error>
+                      </div>
+                    </section>
+
+                    <!-- DATEPICKER -->
+                    <mat-form-field appearance="none" class="disabled-chips margin-bottom margin-mintop"
+                      *ngSwitchCase="datePickerType(field.controlType)">
+                      <input matInput [min]="convertToDate(field.minDate)" [max]="convertToDate(field.maxDate)" readonly
+                        [matDatepicker]="myDatepicker" [(ngModel)]="field.value" formControlName="{{field.columnName}}">
+                      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                      <mat-datepicker #myDatepicker [startView]="field.startView"
+                        (yearSelected)="chosenYearHandler($event,myDatepicker,field)"
+                        (monthSelected)="chosenMonthHandler($event,myDatepicker,field)" [touchUi]="touchUi"
+                        panelClass="{{field.startView}}-picker">
+                      </mat-datepicker>
+                      <mat-error>
+                        {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}}
+                      </mat-error>
+                    </mat-form-field>
+
+                    <!-- FILE INPUT START -->
+                    <section class="example-section" *ngSwitchCase="'file'">
+                      <div>
+                        <div class="file-background" [ngClass]="sdrcForm.get(field.columnName).disabled?'disabled':''">
+                          Choose File
+                          <input id="{{'fileToUpload'+field.columnName}}" class="upload-banner"
+                            [accept]="field.fileExtension?convertExtToAcceptString(field.fileExtension):''" type="file"
+                            name="{{field.columnName}}" [multiple]="field.multiple"
+                            (change)="fileUpload($event,field.fileExtension,field,field.fileSize,sdrcForm)" title=" "
+                            [disabled]="sdrcForm.get(field.columnName).disabled" #newPhoto>
+                        </div>
+                      </div>
+                      <mat-chip-list>
+                        <mat-chip *ngFor="let tag of field?.value" [disabled]="sdrcForm.get(field.columnName).disabled"
+                          [selectable]="selectable" [removable]="removable" (removed)="removeFile(tag, field)"
+                          (click)="viewFile(tag)" [ngClass]="{'fileuploded':progress.percentage === 0}"
+                          style="margin-top:10px">
+                          {{tag.originalName}}
+                          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                      </mat-chip-list>
+
+                      <div
+                        *ngIf="sdrcForm.controls[field.columnName]?.errors?.required && (sdrcForm.controls[field.columnName]?.touched || f.submitted)"
+                        class="" style="margin-top:10px">
+                        <mat-error>
+                          {{'Please upload the correct file format.'}}
+                        </mat-error>
+                      </div>
+
+                      <div *ngIf="!sdrcForm.controls[field.columnName]?.errors?.max && !uploadedFileExt" class=" "
+                        style="margin-top:10px">
+                        <mat-error>
+                          <!-- {{field.fileExtensionValidationMessage}} -->
+                          {{fileExtValidationMessage}}
+                        </mat-error>
+                      </div>
+                      <div *ngIf="sdrcForm.controls[field.columnName]?.errors?.max && !uploadedFileExt" class=" "
+                        style="margin-top:10px">
+                        <mat-error>
+                          {{'Please upload file within '+transform(field.fileSize,2)}}
+                        </mat-error>
+                      </div>
+
+                      <div *ngIf="!sdrcForm.controls[field.columnName]?.errors?.max && uploadedFileExt" class=" "
+                        style="margin-top:10px">
+                        <mat-error>
+                          <!-- {{field.fileExtensionValidationMessage}} -->
+                          {{fileExtValidationMessage}}
+                        </mat-error>
+                      </div>
+                      <div *ngIf="sdrcForm.controls[field.columnName]?.errors?.max && uploadedFileExt" class=" "
+                        style="margin-top:10px">
+                        <mat-error>
+                          {{'Please upload file within 500.00 KB'}}
+                        </mat-error>
+                      </div>
+                    </section>
+                    <!-- FILE INPUT END -->
+
+                    <!-- CHIPS START -->
+                    <mat-form-field appearance="none" *ngSwitchCase="'chips'">
+                      <mat-chip-list #chipList>
+                        <mat-chip *ngFor="let tag of field.value" [selectable]="selectable" [removable]="removable"
+                          (removed)="remove(tag, field)" selected>
+                          {{tag}}
+                          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input [matChipInputFor]="chipList" formControlName="{{field.columnName}}"
+                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                          (matChipInputTokenEnd)="add($event, field.key)">
+                      </mat-chip-list>
+
+                      <mat-error>
+                        {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}}
+                      </mat-error>
+                    </mat-form-field>
+
+                    <!-- HEADING START-->
+                    <div class="section-head" *ngSwitchCase="'heading'">
+                      <h6>{{field.serialNumb}}{{field.label}}</h6>
+                      <hr class="style-one">
+                    </div>
+                    <!-- HEADING END -->
+
+                    <div *ngSwitchCase="'iframe'">
+                      <iframe [src]="field.value | safe" width="100%" height="300" frameborder="0" style="border:0"
+                        allowfullscreen></iframe>
+                    </div>
+
+                    <!-- BUTTONS START -->
+                    <div class="d-flex justify-content-center content-section" *ngSwitchCase="'btn-group'">
+                      <div *ngFor="let eachButton of field.childMenus" [ngSwitch]="eachButton.controlType">
+
+                        <button *ngSwitchCase="'submit'" mat-raised-button [ngClass]="eachButton.columnName"
+                          class="btn-margin submit-btn" type="submit" color="primary"
+                          [disabled]='fileExtensionError || !f.valid || !f.dirty'>{{eachButton.value?eachButton.value:'Save'}}</button>
+                        <button *ngSwitchCase="'reset'" mat-raised-button [ngClass]="eachButton.columnName"
+                          class="btn-margin submit-btn" type="button" (click)="resetAndScrollUp()"
+                          [disabled]="(!update && !sdrcForm.dirty)" [ngClass]="{' reset-btn':sdrcForm.touched}"
+                          color="primary">{{eachButton.value?eachButton.value:'Reset'}}</button>
+                        <button *ngSwitchCase="'edit'" mat-raised-button [ngClass]="eachButton.columnName"
+                          class="btn-margin edit-btn" type="button" (click)="enableData()"
+                          color="primary">{{eachButton.value?eachButton.value:'Edit'}}</button>
+                        <!-- <button *ngSwitchCase="'edit'" mat-raised-button [ngClass]="eachButton.columnName"
+                        class="btn-margin edit-btn" type="button" (click)="cancelData()"
+                        color="primary">Cancel</button> -->
+                        <!-- <button *ngSwitchCase="'preview'" mat-raised-button [ngClass]="eachButton.columnName"
+                          class="btn-margin preview-btn" type="preview" color="primary">{{eachButton.value}}</button>
+                          <button *ngSwitchCase="'button'" mat-raised-button [ngClass]="eachButton.columnName" class="btn-margin"
+                          type="button" color="primary" (click)="buttonClicked(questionUIArray)">{{eachButton.value}}</button> -->
+                      </div>
+                    </div>
+
+                    <!-- TABLE START -->
+                    <div class="d-flex justify-content-between" *ngSwitchCase="'table'">
+                      <sdrc-table class="col-md-8" [id]="'tab2'" [rowData]="innerSchemeTableBody"
+                        [columnData]="innerSchemeColumns" [sortExcludeColumn]="[]" [maxTableHeight]="'600px'"
+                        [isPaginate]="true" [itemsPerPage]="10" [headerFixed]="true" [searchBox]="true"
+                        [selectDropdown]="false" [downloadPdf]="false" [siNoAvailable]="true"
+                        (onActionButtonClicked)="tableActionClicked($event)">
+                      </sdrc-table>
+                      <ul class="list-group selected-indicators col-md-4 p-0"
+                        [ngClass]="{'border': goalWiseSelectedInd.length}">
+                        <li class="list-group-item border-bottom disabled"
+                          *ngFor="let eachSelectedItem of goalWiseSelectedInd">
+                          <div class="">{{eachSelectedItem.goalName}}</div>
+                          <ul class="list-group p-0">
+                            <li class="list-group-item disabled"
+                              *ngFor="let eachSubItem of eachSelectedItem.indicators">
+                              {{eachSubItem.indName}}
+                            </li>
+                          </ul>
+                        </li>
+                        <!-- <ul class="list-group col-md-4 p-0" >
+                        <li class="list-group-item disabled">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul> -->
+                      </ul>
+                    </div>
+                    <!-- TABLE END -->
+
+                    <!-- TABLE START -->
+                    <div class="d-flex justify-content-between" *ngSwitchCase="'table-values'">
+                      <app-target-indicator (valueChanged)="valueChanged($event)" [indicatorWiseTargetValue]="indicatorWiseTargetValue"
+                        [indicatorsFG]=indicatorsFG [indicatorsFormConfig]="indicatorsFormConfig">
+                      </app-target-indicator>
+                    </div>
+                    <!-- TABLE END -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+
+          <ng-template #noDataAvailable>
+            <mat-card>
+              No Data Found.
+            </mat-card>
+          </ng-template>
+        </form>
+        <!-- FORM SECTION END -->
+
+        <!-- TABLE LAYOUT START -->
+        <div class="table-div ">
+          <!-- DROP DOWN -->
+          <mat-form-field appearance="none" *ngIf="selectedDepartment" class="department-dropdown">
+            <mat-select [(ngModel)]="selectedDepartment"
+              (selectionChange)="dropdownSelectOnChange({columnName:'departmentName'})"
+              [disabled]="departmentList && departmentList.length == 1">
+              <mat-option *ngFor="let opt of departmentList | disableOptions" [value]="opt.departmentId || opt"
+                [disabled]="opt['disableOption']">
+                {{opt.departmentName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- DROP DOWN -->
+
+          <div id="table" class="container-fluid" *ngIf="selectedSectionData && selectedSectionData.valueShowType=='Table' &&
+            selectedSectionData.tableBody">
+
+            <!-- CREATE BUTTON START-->
+            <div class="create-item button-with-icon"
+              *ngIf="selectedSectionData && selectedSectionData.apis.create && !showForm && hasUserAccessToMDM(AuthoritiesTyeps.create)"
+              (click)="toggleAndResetForm()">
+              <!-- <img class="image" src="assets/images/icon/Create_User.png">  --> <i class="fa fa-plus" aria-hidden="true"></i> <span class="pl-2">Create <span
+                  *ngIf="selectedSectionData && selectedSectionData.leftsubmenuName">{{selectedSectionData.leftsubmenuName}}</span></span>
+            </div>
+            <!-- CREATE BUTTON END -->
+            <sdrc-table [id]="'tab1'" [rowData]="selectedSectionData.tableBody"
+              [columnData]="selectedSectionData.tableColumns" sorting="true" [sortExcludeColumn]="['action', 'slNo']"
+              [isPaginate]="true" [itemsPerPage]="10" [headerFixed]="true" [searchBox]="true" [selectDropdown]="false"
+              [downloadPdf]="false" [siNoAvailable]="true" [excludedColumns]="selectedSectionData.excludedColumns"
+              (onActionButtonClicked)="tableActionClicked($event)">
+            </sdrc-table>
+          </div>
+        </div>
+        <!-- TABLE LAYOUT END -->
+
+      </div>
+      <!-- WEB BASED VIEW END -->
+
+      <!-- EXCEL VIEW START -->
+      <div *ngIf="this.currentView == MDMViewType.Excel">
+        <excel-operation-view (departmentChanged)="departmentChanged($event)" [selectedDepartment]="selectedDepartment"
+          [allDepartment]="departmentList" [routedParam]="routedParam">
+        </excel-operation-view>
+      </div>
+      <!-- EXCEL VIEW END -->
+
+    </div>
+    <!-- MAIN CONTENT END -->
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width modal-width-preview">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="destroyModalData()">×</button>
+        </div>
+        <div class="modal-body preview-file-body" *ngIf="url">
+          <embed [src]="url" frameborder="0" width="100%" height="488px">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default cancel-btn" data-dismiss="modal"
+            (click)="destroyModalData()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANGE PASSWORD MODAL -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalL"
+    aria-hidden="true">
+    <div class="modal-dialog modal-width modal-width-preview">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="changePasswordModalL">Rest Password</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="destroyModalData()">×</button>
+        </div>
+        <form class="modal-body preview-file-body" #f="ngForm" (submit)="f.valid ?changePasswordApi():''"
+          *ngIf="changePassword.display" [formGroup]="changePasswordForm">
+          <mat-form-field appearance="none" class="disabled-chips">
+            <input matInput type="password" name="newPassword" [(ngModel)]="changePassword.newPassword"
+              formControlName="newPassword" [placeholder]="'Please Enter Password'">
+            <mat-error class="padding-bottom">
+              {{changePasswordForm.controls?.newPassword?.errors?.password ? ERROR_MESSAGE.invalidPassword : 'Please provide valid new password:'}}
+              <!-- {{sdrcForm.controls[field.columnName]?.errors?.required ? 'Please provide '+field.label: ''}} -->
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="none" class="mt-4 disabled-chips">
+            <input matInput type="password" name="confirmPassword" [(ngModel)]="changePassword.confirmPassword"
+              formControlName="confirmPassword" [placeholder]="'Please Enter Confirm Password'">
+            <mat-error class="padding-bottom">
+              <!-- <div
+              *ngIf="!(changePasswordForm.controls?.confirmPassword?.errors && changePasswordForm.controls?.newPassword?.errors) && changePassword.confirmPassword != changePassword.newPassword"
+              class="material-error">
+              The New password and Confirm password do not match
+            </div> -->
+              <div class="mt-1">
+                {{getTextFieldErrors(changePasswordForm.controls["confirmPassword"], {label:'confirmPassword'})}}
+                <!-- {{changePasswordForm.controls?.confirmPassword?.errors?.password ? ERROR_MESSAGE.invalidPassword :'Please provide valid confirm password'}} -->
+              </div>
+            </mat-error>
+          </mat-form-field>
+          <div class="modal-footer mt-3">
+            <button type="submit" class="btn btn-default reset-btn">Save</button>
+            <button type="button" class="btn btn-default cancel-btn" data-dismiss="modal"
+              (click)="destroyModalData()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

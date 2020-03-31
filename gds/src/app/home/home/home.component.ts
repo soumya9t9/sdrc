@@ -1,0 +1,279 @@
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { HomeService } from '../home.service';
+import { Goal } from '../models/goal';
+import { StringDecoder } from 'string_decoder';
+import { LineChartPointModel } from 'src/app/models/linechart-point.model';
+import { Constants } from 'src/app/constants';
+import { PipeGoalOrderPipe } from '../pipes/pipe-goal-order.pipe';
+import { MatDialog } from '@angular/material';
+import { ModalMessageComponent } from '../modal-message/modal-message.component';
+declare var $: any;
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+  animations: [Constants.SlideRightAnimation, Constants.SlideUpAnimation]
+})
+export class HomeComponent implements OnInit, AfterViewInit {
+
+  allGoals: Goal[];
+  layoutGoals: any;
+  homeService: HomeService;
+  DistrictWiseGoalData: any;
+  allSectors: any[];
+  goalsPerRow: number
+  selectedGoalTrendView: any;
+  selectedWheelGoal: any;
+  barSwitch: boolean=true;
+  selectedTimeperiodId: any;
+  color=Constants.goalColours;
+  selectedColor:{color1:string, color2: string, color3: string, color4: string};
+  goalColours = Constants.goalColours;
+  timeperiods;
+  indicatorTrendTableData: any;
+  goalTrendViewOn: boolean = false;
+  indicatorTrendTableViewOn: boolean = false;
+  goalShortName = Constants.goalShortNames;
+  goalDescription = Constants.goalDescriptions
+  selectedStackArea: any;
+  selectedGoalScoreModalView: string;
+  selectedGoalTrendModalView: string;
+  allGoalwiseCount: any;
+  targetIndicatorDepartmentList: any
+  constructor(private homeProvider: HomeService, private dialog: MatDialog) {
+    this.homeService = homeProvider;
+   }
+
+  ngOnInit() {
+    this.getAllGoals();
+    this.getTargetIndicatorDepartmentCount()
+    // this.getOverallIndexChartData(152);
+  }
+
+  getGoalDataDistrictwise(goalCode) {
+    // let data = {
+    //   areaCode: "IND005",
+    //   sectorId: goalId
+    // }
+    this.homeService.getGoalDataDistrictWise(goalCode, this.selectedTimeperiodId).subscribe(res => {
+      this.DistrictWiseGoalData = res;
+      let uttarakhandGoal = this.DistrictWiseGoalData[0]
+      this.getDistrictwiseGoalTrend(uttarakhandGoal, 'refreshedData')
+    })
+  }
+
+  setAllGoalData(data) {
+    this.barSwitch = false;
+    setTimeout(() => {
+      this.barSwitch = true;
+    }, 100)
+    this.selectedWheelGoal = this.allGoals.filter(goal => goal.national_sdmx_code == data.selectedGoalCode)[0];
+    // this.selectedColor=this.color[this.selectedWheelGoal.value.split(':')[0]];
+    this.getTargetIdicatorDepartmentList();
+  }
+
+  getDistrictwiseGoalTrend(distGoal, trigger) {
+    this.goalTrendViewOn = true;
+    this.selectedStackArea = distGoal;
+    this.homeService.getGoalsTrend(distGoal.areaCode, this.selectedTimeperiodId).subscribe(res => {
+      if(trigger != 'refreshedData')
+      $('html, body').animate({
+        scrollTop: $("#goal-list-container").offset().top
+    }, 2000);
+    let goals = <any>res;
+
+    if(goals.length){
+      this.setGoalsForLayout(new PipeGoalOrderPipe().transform(goals))
+    }
+      
+    })
+    
+  }
+
+  getAllGoals() {
+    this.homeService.getAllGoals().subscribe(res => {
+      this.allSectors = <any[]>res;
+      let indexGoal = this.allSectors.filter(d => d.national_sdmx_code == "GOAL_0")[0]
+      this.allGoals = this.allSectors.filter(d => d.desc == -1);
+      this.selectedWheelGoal = indexGoal
+      this.getAllTimeperiods(indexGoal.national_sdmx_code);
+      this.getTargetIdicatorDepartmentList()
+      
+    })
+  }
+  
+  getGoalScore(distGoal) {
+    if(this.selectedWheelGoal.national_sdmx_code == 'GOAL_0'){
+      return distGoal.score
+    } else {
+      let goalValue = distGoal.sdgs.filter(d => d.goalId == this.selectedWheelGoal.national_sdmx_code)[0];
+      return goalValue.score
+    }
+  }
+
+  countOfDistrictsStatuswise(status) {
+    if(this.DistrictWiseGoalData) {
+      if(status == 'Achiever') {
+        return this.DistrictWiseGoalData.filter(dist => dist.score >= 99).length
+      } else if(status == 'Front Runner') {
+        return this.DistrictWiseGoalData.filter(dist => dist.score >= 65 && dist.score < 99 ).length
+      } else if(status == 'Performer') {
+        return this.DistrictWiseGoalData.filter(dist => dist.score >= 50 && dist.score < 65 ).length
+      } else if(status == 'Aspirant') {
+        return this.DistrictWiseGoalData.filter(dist => dist.score >= 0 && dist.score < 50 ).length
+      } else if(status == 'NA') {
+        return this.DistrictWiseGoalData.length - this.DistrictWiseGoalData.filter(dist => dist.score >= 65 && dist.score < 99 ).length 
+        - this.DistrictWiseGoalData.filter(dist => dist.score >= 65 && dist.score < 99 ).length
+        - this.DistrictWiseGoalData.filter(dist => dist.score >= 50 && dist.score < 65 ).length 
+        - this.DistrictWiseGoalData.filter(dist => dist.score >= 0 && dist.score < 50 ).length
+      } else {
+        return null
+      }
+    }
+  }
+
+  getGoalBarWidthFromScore(distGoal, goalCode) {
+    let goalValue
+    if(this.selectedWheelGoal.national_sdmx_code == 'GOAL_0'){
+      goalValue = distGoal.sdgs.filter(d => d.goalId == goalCode)[0];
+      return goalValue.score/17 > 0.58 ? goalValue.score/17 + "%" : "0.58%"
+    } else {
+      if(this.selectedWheelGoal.national_sdmx_code == goalCode) {
+        goalValue = distGoal.sdgs.filter(d => d.goalId == goalCode)[0];
+        return goalValue.score + "%"
+      }else {
+        return 0;
+      }
+    }
+    
+  
+
+  }
+
+  setGoalsForLayout(goals) {
+    let tempLayoutGoals = [];
+    this.goalsPerRow;
+    if($(window).width() > 767) {
+      this.goalsPerRow = 9;
+    } else if($(window).width() > 575) {
+      this.goalsPerRow = 4;
+    } else {
+      this.goalsPerRow = 2;
+    }
+
+    for (let i = 0; i < Math.ceil(goals.length / this.goalsPerRow); i++) {
+      if((i+1) * this.goalsPerRow <= goals.length){
+        tempLayoutGoals.push(goals.slice(i * this.goalsPerRow, (i+1) * this.goalsPerRow))
+      } else {
+        tempLayoutGoals.push(goals.slice(i * this.goalsPerRow, goals.length))
+      }
+    }
+    console.log(tempLayoutGoals)
+    return this.layoutGoals = tempLayoutGoals;
+
+  }
+
+  selectArea() {
+
+  }
+
+  selectTimeperiod(timeperiod) {
+    // this.selectedTimeperiodId = timeperiod
+    this.getGoalDataDistrictwise(this.selectedWheelGoal.national_sdmx_code);
+  }
+
+  closeIndicatorTableView() {
+    this.indicatorTrendTableViewOn = false;
+
+  }
+
+  openIndicatorModalData(distGoal, goalCode) {
+    this.selectedStackArea = distGoal;
+    
+    let selectedGoal = this.allGoals.filter(g => g.national_sdmx_code == goalCode)[0]
+    this.getIndicatorTableData(selectedGoal)
+  }
+
+  getTargetIdicatorDepartmentList() {
+    this.homeService.getTargetIdicatorDepartmentList(this.selectedWheelGoal.national_sdmx_code).subscribe(res => {
+      this.targetIndicatorDepartmentList = res;
+    })
+  }
+
+  showModalForTargetIndicatorDepartmentList(key) {
+    let targetIndDeptlist, headerName;
+    if(key == 'target') {
+      headerName = "Targets: " + (Constants.goalShortNames[this.selectedWheelGoal.national_sdmx_code] || 'SDG')
+      targetIndDeptlist = this.targetIndicatorDepartmentList[0].target
+    } 
+    if(key == 'indicator') {
+      headerName = "Indicators: " + (Constants.goalShortNames[this.selectedWheelGoal.national_sdmx_code] || 'SDG')
+      targetIndDeptlist = this.targetIndicatorDepartmentList[0].indicators
+    } if(key == 'department') {
+      headerName = "Departments: " + (Constants.goalShortNames[this.selectedWheelGoal.national_sdmx_code] || 'SDG')
+      targetIndDeptlist = this.targetIndicatorDepartmentList[0].departments
+    }
+    const dialogRef = this.dialog.open(ModalMessageComponent,
+      { width: '90%', disableClose: true, data: { header: headerName, list: targetIndDeptlist } });
+  }
+
+  getIndicatorTableData(goal) {
+    this.selectedGoalScoreModalView = this.selectedStackArea.sdgs.filter(d => d.goalId == goal.national_sdmx_code)[0].score;
+    this.selectedGoalTrendModalView = this.selectedStackArea.sdgs.filter(d => d.goalId == goal.national_sdmx_code)[0].trend
+    
+    this.selectedGoalTrendView = goal;
+    this.selectedColor=this.color['Goal ' + this.selectedGoalTrendView.national_sdmx_code.split('_')[1]];
+    this.homeService.getIndicatorTableData(this.selectedStackArea.areaCode, this.selectedTimeperiodId, this.selectedGoalTrendView.national_sdmx_code).subscribe(res => {
+      this.indicatorTrendTableViewOn = true;
+      this.indicatorTrendTableData = res;
+    })
+  }
+
+  getAllTimeperiods(goalCode) {
+    this.homeService.getAllTimeperiods().subscribe(res => {
+      this.timeperiods = res;
+      if(this.timeperiods.length){
+      this.selectedTimeperiodId = this.timeperiods[0].id
+      this.getGoalDataDistrictwise(goalCode);
+      }
+    })
+  }
+
+  getTargetIndicatorDepartmentCount() {
+    this.homeService.getDeptIndicatorCounts().subscribe(res => {
+      let allGoalwiseCount:any = res;
+      let tempFinalCount:any = {}
+      for (let i = 0; i < allGoalwiseCount.length; i++) {
+        const element = allGoalwiseCount[i];
+        tempFinalCount[element.goalCode] = element;
+      }
+      this.allGoalwiseCount = tempFinalCount;
+    })
+  }
+
+  backToSDG() {
+    this.selectedWheelGoal = this.allGoals.filter(g => g.national_sdmx_code == 'GOAL_0')[0];
+    // this.getAllTimeperiods(this.selectedWheelGoal.national_sdmx_code)
+    this.barSwitch = false;
+    setTimeout(() => {
+      this.barSwitch = true;
+    }, 100)
+    this.getDistrictwiseGoalTrend(this.DistrictWiseGoalData[0], 'refreshedData')
+  }
+
+  setTooltipTitle(distGoal, goalCode) {
+    let goalObj = distGoal.sdgs.filter(d => d.goalId == goalCode)[0];
+    if(goalObj)
+    return Constants.goalShortNames[goalObj.goalId] 
+    + ' \n  Score : ' +  goalObj.score;
+    return null
+  }
+
+  ngAfterViewInit() {
+    // $(".banner-chart").height($(".banner-chart").width() * 7 / 5 * 622.11 / 786.91 -7)
+    if($(window).width() < 768) {
+      $(".sdg-wheel-container").height( $(window).width()*597/755)
+    }
+  }
+}

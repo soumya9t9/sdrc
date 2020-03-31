@@ -1,0 +1,148 @@
+[
+    [
+        {
+            "axis": "Almora",
+            "value": "71.0",
+            "id": 540,
+            "legend": "SC",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "93",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Bagheswar",
+            "value": "68.0",
+            "id": 541,
+            "legend": "ST",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Champawat",
+            "value": "60.0",
+            "id": 542,
+            "legend": "OBC",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "361",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Dehradun",
+            "value": "50",
+            "id": 543,
+            "legend": "Minority",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Hardwar",
+            "value": "43.0",
+            "id": 544,
+            "legend": "General",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "200",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Nainital",
+            "value": "40.0",
+            "id": 545,
+            "legend": "Social Category not specified",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Rudraprayag",
+            "value": "40.0",
+            "id": 545,
+            "legend": "Social Category not specified",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "TeriGarhwai",
+            "value": "33.5",
+            "id": 545,
+            "legend": "Social Category not specified",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "CHamali",
+            "value": "29.0",
+            "id": 545,
+            "legend": "Social Category not specified",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Pithoragarh",
+            "value": "24.0",
+            "id": 545,
+            "legend": "Social Category not specified",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Uttarkashi",
+            "value": "19.5",
+            "id": 545,
+            "legend": "Social Category not specified",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        },
+        {
+            "axis": "Udham Singh Nagar",
+            "value": "15.5",
+            "id": 545,
+            "legend": "Social Category not specified",
+            "cssClass": null,
+            "unit": "Percentage",
+            "numerator": "0",
+            "denominator": "654",
+            "label": null,
+            "key": null
+        }
+    ]
+]

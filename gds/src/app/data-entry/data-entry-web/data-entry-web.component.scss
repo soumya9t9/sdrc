@@ -1,0 +1,79 @@
+.web-entry-container {
+    margin-top: 80px;
+}
+.select-lable {
+    font-weight: bold;
+}
+table thead {
+    background-color: #555 !important;
+}
+table thead th {
+    vertical-align: middle;
+    text-align: center;
+    flex: 0 0 100px!important;
+    padding: .35rem;
+    color: #FFF;
+    font-weight: normal;
+    min-width: 120px;
+}
+.table-bordered td, .table-bordered th {
+    border: 3px solid #FFF;
+}
+table tbody td {
+    background-color: #efefef;
+}
+table tbody td.no-edit {
+    background-color: #e5fff1;
+}
+.page-heading {
+    border-bottom: 1px solid gray;
+}
+::ng-deep table .mat-form-field {
+    width: 93px;
+}
+.filter-section {
+    padding: 25px 0 10px;
+}
+// .switch-web {
+//     position: absolute;
+//     top: 0;
+//     right: 16px;
+// }
+.excel-web-toggler div{
+    cursor: pointer;
+}
+
+.excel-web-toggler {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    z-index: 1;
+    color: #fff;
+    background-color: #1D7946;
+    border: 1px solid #333;
+    padding: 2px 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 31px;
+}
+
+
+
+@media(max-width: 767px){
+    .reset-btn {
+        margin-left: 0;
+        margin-top: 0;
+    }
+}

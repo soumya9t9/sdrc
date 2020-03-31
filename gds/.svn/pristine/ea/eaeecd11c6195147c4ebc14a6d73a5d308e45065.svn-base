@@ -1,0 +1,232 @@
+@import "../../../assets/styles/color.scss";
+
+.field-holder{
+    display: inline-flex; 
+    padding: 0;   
+}
+.field-holder label{
+    padding: 0;
+    color: $first-color;
+    font-size: 15px;
+}
+.spanErr{
+    color: #f8483b;
+    font-size: 17px;
+}
+
+
+.dlt-btn{
+    position: relative;
+    // left: 25px;
+    margin-top: 10px;
+}
+.up-text{
+    color: #1CABE2;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+.delete-btn{
+    margin: 0px 0px 15px 45px;
+    min-width: 65px;
+    height: 30px;
+    padding: 6px;   
+    background-color: $first-color;
+    color: #FFF;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+h5{
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #1CABE2;
+    border-radius: 3px;
+}
+.submit-btn {
+    margin: 0px 0px 15px;
+    min-width: 100px;
+    padding: 6px;    
+    background-color: $first-color;
+    color: #FFF;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+.reset-btn{    
+    background-color: $first-color;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+.selected{
+    background : #bbb;
+    border-right: 2px solid #fff;
+}
+.oddTabelHead{
+    background : #bbb;
+    border-right: 2px solid #fff;
+}
+.table th {
+    padding: 9px;   
+    text-align: left;
+    font-size: 15px !important;
+    font-weight: 600;
+    // padding-left: 20px;
+}
+.table td {
+    padding: 5px;   
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 20px;
+    border-bottom: 2px solid #fff;
+}
+#myInput {
+    width: 100%;
+    border-radius: 0;
+    padding: 12px 20px 12px 10px !important;
+    margin-bottom: 8px;
+    box-shadow: 0px 0px 2px 0px;
+    font-size: 15px;
+    height: 34px;
+    font-style:italic;
+}
+.table-btn.search .form-group{
+    position: relative;
+    margin-bottom: 0px !important; 
+    padding-right: 6px;
+    float: right;
+}
+.table-btn.search .form-group:before {
+    position: absolute;
+    font-family: 'FontAwesome';
+    top: 5px;
+    right: 25px;
+    color: #9c9c9c;
+    content: "\f002";
+}
+.no-data{    
+    font-size: 26px;
+}
+.td-minWidth{
+    width: 195px !important;
+    text-align: center !important;
+}
+.margin-fields{
+    padding: 0 60px;
+}
+.btns-desgn{
+    right:20px;
+}
+.add-new{
+    float: right;
+    font-size: 13px;
+    padding: 5px;
+    color: #fff !important;
+    background: $first-color;
+    text-align: center;
+    cursor: pointer;
+}
+.iconImg{
+    margin-right:10px;
+    cursor: pointer; 
+}
+.actionImg{
+    position: relative;
+    left: 80px;
+}
+.deleteFile{
+    margin-left: 10px;
+}
+.imgCap{
+    display: inline-block;
+    margin-left: 15px;
+}
+.uploadedImgShow{
+    padding-left: 46px;
+    padding-bottom: 15px;
+}
+.uploadErr{
+    font-size: 11px;
+    font-weight: 400;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+.delete-img{
+    display: inline-block;
+    padding: 5px;
+    margin-left: 20px;
+    background: $first-color;
+    color: #fff;
+    cursor: pointer;
+    width: 60px;
+    text-align: center;
+}
+.modal-title{
+    padding-left: 15px;
+    font-size: 22px;
+}
+.btn-classes .add-new{
+    border: none;
+}
+.btn-classes :disabled{
+    cursor: no-drop !important; 
+    background: #ddd;  
+    color: #333;
+}
+.admin-stories{
+    border: none !important;
+    background: none !important;
+}
+.admin-stories:disabled{
+    cursor: no-drop !important;   
+}
+
+.card{
+    margin-top: 30px;
+}
+.card-title{
+    font-size: 18px;
+    display: inline-flex;
+    width: 100%;
+}
+.card-title .heading{
+    font-weight: bold;
+    width: 70%;
+}
+.card-title .info{
+    white-space: nowrap; 
+    width: 200px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+@media screen and (max-width: 767px){
+    .up-text{
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+}
+
+
+@media screen and (max-width: 360px){
+    .btn-classes .add-new {
+        margin-top: 10px;
+    }
+}
+
+.page-heading {
+    font-size: 20px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    color: #333;
+    margin-bottom: 20px;
+    padding-top: 15px;
+}
+::ng-deep .mat-form-field-infix {
+    border: none !important;
+    background: white !important;
+    padding: .5em 0;
+    border-top: .84375em solid transparent !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper label {
+    color: #58b3ca!important;
+}

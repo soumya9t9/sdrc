@@ -1,0 +1,15 @@
+<div class="container-fluid rejection-container">
+  <div class="page-heading">
+    <div class="h4">Submission Management</div>
+  </div>
+  <div class="data-sec">
+    <mat-tab-group>
+      <mat-tab label="Indicator View"> 
+        <app-rejection-indicator-view></app-rejection-indicator-view>
+      </mat-tab>
+      <mat-tab label="District View">
+        <app-rejection-district-view></app-rejection-district-view>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

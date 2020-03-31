@@ -1,0 +1,52 @@
+.toast-wrapper {
+    min-height: 100px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.zi-negative {
+    z-index: -999 !important;
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.modal {
+    z-index: 9999;
+}
+
+.conformation {
+    text-align: center;
+    color: #1f4a7c;
+    margin: 0 0 20px;
+}
+
+.button {    
+    background-color: #2c5f2c;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.mat-dialog-container {
+    padding: 24px;
+}
+.modal-dialog {
+    z-index: 1000;
+}
+
+.alert-danger {
+    color: white;
+    background-color: #ef3f2b;
+    border-color: #f5c6cb;
+}

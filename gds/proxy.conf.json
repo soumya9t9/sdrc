@@ -1,0 +1,8 @@
+{
+    "/sdg/*": {
+        "target" : "https://testserver.sdrc.co.in:8443",
+        "secure" : false,
+        "logLevel" : "debug"
+        
+    }
+}
